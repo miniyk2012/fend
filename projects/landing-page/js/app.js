@@ -35,7 +35,7 @@ function isInViewport(el) {
 
     while (el.offsetParent) {
         el = el.offsetParent;
-        top += el.offsetTop;
+        top += el.offsetTop;    
         left += el.offsetLeft;
     }
 
@@ -78,7 +78,7 @@ function initActive() {
 // Scroll to anchor ID using scrollTO event
 
 function addScrollListener() {
-    document.addEventListener('scroll', function (event) {
+    document.addEventListener('scroll', function () {
         sections.forEach((section) => {
             const relativeLi = document.getElementById(section.dataset.nav);
             if (isInViewport(section)) {
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
 function buildMenu(section, navFrag) {
     const a = document.createElement('a');
     a.href = '#a-' + section.id;
-    const li = document.createElement("li");
+    const li = document.createElement('li');
     li.id = section.dataset.nav;
     li.innerHTML = section.dataset.nav;
     li.classList.add('menu__link');

@@ -76,5 +76,10 @@ You should write your code and markup to meet the specifications provided in the
 
 
 notes:
+detect element in viewpoint:
 https://medium.com/talk-like/detecting-if-an-element-is-in-the-viewport-jquery-a6a4405a3ea2
 https://gomakethings.com/how-to-test-if-an-element-is-in-the-viewport-with-vanilla-javascript/
+https://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport/31772470 
+
+Eslint:
+https://www.jianshu.com/p/ad1e46faaea2
