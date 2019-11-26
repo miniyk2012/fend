@@ -26,26 +26,26 @@ let sections = undefined;
  */
 
 /* https://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport/31772470 
-*/
+ */
 function isInViewport(el) {
     var top = el.offsetTop;
     var left = el.offsetLeft;
     var width = el.offsetWidth;
     var height = el.offsetHeight;
-  
-    while(el.offsetParent) {
-      el = el.offsetParent;
-      top += el.offsetTop;
-      left += el.offsetLeft;
+
+    while (el.offsetParent) {
+        el = el.offsetParent;
+        top += el.offsetTop;
+        left += el.offsetLeft;
     }
-  
+
     return (
-      top < (window.pageYOffset + window.innerHeight) &&
-      left < (window.pageXOffset + window.innerWidth) &&
-      (top + height) > window.pageYOffset &&
-      (left + width) > window.pageXOffset
+        top < (window.pageYOffset + window.innerHeight) &&
+        left < (window.pageXOffset + window.innerWidth) &&
+        (top + height) > window.pageYOffset &&
+        (left + width) > window.pageXOffset
     );
-  }
+}
 
 /**
  * End Helper Functions
@@ -60,18 +60,13 @@ function buildNav() {
     const navList = document.getElementById('navbar__list');
 
     sections.forEach((section) => {
-        const a = document.createElement('a');
-        a.href = section.dataset.nav;
-        const li = document.createElement("li");
-        li.id = section.dataset.nav;
-        li.innerHTML = section.dataset.nav;
-        li.classList.add('menu__link');
-        a.appendChild(li);
-        navFrag.appendChild(a);
+        buildMenu(section, navFrag);
     });
 
     navList.appendChild(navFrag);
 }
+
+
 
 // Add class 'active' to section when near top of viewport
 
@@ -83,13 +78,13 @@ function initActive() {
 // Scroll to anchor ID using scrollTO event
 
 function addScrollListener() {
-    document.addEventListener('scroll', function (event){
+    document.addEventListener('scroll', function (event) {
         sections.forEach((section) => {
             const relativeLi = document.getElementById(section.dataset.nav);
             if (isInViewport(section)) {
-                relativeLi.classList.add('menu_active');
+                makeActive(relativeLi);
             } else {
-                relativeLi.classList.remove('menu_active');
+                makeActive(relativeLi, false);
             }
         });
     });
@@ -99,6 +94,7 @@ document.addEventListener('DOMContentLoaded', function () {
     buildNav();
     initActive();
     addScrollListener();
+    wrapperATag();
 });
 
 /**
@@ -108,14 +104,33 @@ document.addEventListener('DOMContentLoaded', function () {
  */
 
 // Build menu 
-
-
+function buildMenu(section, navFrag) {
+    const a = document.createElement('a');
+    a.href = '#a-' + section.id;
+    const li = document.createElement("li");
+    li.id = section.dataset.nav;
+    li.innerHTML = section.dataset.nav;
+    li.classList.add('menu__link');
+    a.appendChild(li);
+    navFrag.appendChild(a);
+}
 
 // Scroll to section on link click
 function wrapperATag() {
     sections.forEach((section) => {
-        // const 
+        const landingContainer = section.firstElementChild;
+        const a = document.createElement('a');
+        a.id = 'a-' + section.id;
+        a.appendChild(landingContainer);
+        section.appendChild(a);
     });
 }
 
 // Set sections as active
+function makeActive(ele, active = true) {
+    if (active) {
+        ele.classList.add('menu_active');
+    } else {
+        ele.classList.remove('menu_active');
+    }
+}
