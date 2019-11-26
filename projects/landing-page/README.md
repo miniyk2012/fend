@@ -73,3 +73,8 @@ You should write your code and markup to meet the specifications provided in the
 * [HTML Style Guide](http://udacity.github.io/frontend-nanodegree-styleguide/index.html)
 * [JavaScript Style Guide](http://udacity.github.io/frontend-nanodegree-styleguide/javascript.html)
 * [Git Style Guide](https://udacity.github.io/git-styleguide/)
+
+
+notes:
+https://medium.com/talk-like/detecting-if-an-element-is-in-the-viewport-jquery-a6a4405a3ea2
+https://gomakethings.com/how-to-test-if-an-element-is-in-the-viewport-with-vanilla-javascript/
