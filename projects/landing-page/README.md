@@ -75,7 +75,7 @@ You should write your code and markup to meet the specifications provided in the
 * [Git Style Guide](https://udacity.github.io/git-styleguide/)
 
 
-notes:
+## notes:
 detect element in viewpoint:
 https://medium.com/talk-like/detecting-if-an-element-is-in-the-viewport-jquery-a6a4405a3ea2
 https://gomakethings.com/how-to-test-if-an-element-is-in-the-viewport-with-vanilla-javascript/
@@ -83,3 +83,16 @@ https://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visib
 
 Eslint:
 https://www.jianshu.com/p/ad1e46faaea2
+
+
+todo:
+
+[] a tag用事件监控并调整, stop default event啥的
+
+[] 时间一长就把nav隐藏, 加一个向上的按钮
+
+[] import放上面和下面的性能对比
+
+[] eslint的进一步学习
+
+[x] 监听是怎样加的: 加在document上的 done

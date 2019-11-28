@@ -18,6 +18,8 @@
  * 
  */
 let sections = undefined;
+let navList = undefined;
+let landingPage = undefined;
 
 /**
  * End Global Variables
@@ -35,7 +37,7 @@ function isInViewport(el) {
 
     while (el.offsetParent) {
         el = el.offsetParent;
-        top += el.offsetTop;    
+        top += el.offsetTop;
         left += el.offsetLeft;
     }
 
@@ -56,8 +58,10 @@ function isInViewport(el) {
 // build the nav
 function buildNav() {
     sections = document.querySelectorAll('main>section');
+    navList = document.getElementById('navbar__list');
+    landingPage = document.querySelector('.main__hero');
+
     const navFrag = document.createDocumentFragment();
-    const navList = document.getElementById('navbar__list');
 
     sections.forEach((section) => {
         buildMenu(section, navFrag);
@@ -65,8 +69,6 @@ function buildNav() {
 
     navList.appendChild(navFrag);
 }
-
-
 
 // Add class 'active' to section when near top of viewport
 
@@ -79,6 +81,7 @@ function initActive() {
 
 function addScrollListener() {
     document.addEventListener('scroll', function () {
+        showNav();
         sections.forEach((section) => {
             const relativeLi = document.getElementById(section.dataset.nav);
             if (isInViewport(section)) {
@@ -90,13 +93,26 @@ function addScrollListener() {
     });
 }
 
+
 document.addEventListener('DOMContentLoaded', function () {
     buildNav();
     initActive();
+    setTimeout(hideNav, 3000);
     addScrollListener();
     wrapperATag();
 });
 
+
+function hideNav() {
+    if (!isInViewport(landingPage)) {
+        navList.style.display = 'none';
+    }
+    setTimeout(hideNav, 3000);
+}
+
+function showNav() {
+    navList.style.display = '';
+}
 /**
  * End Main Functions
  * Begin Events
