@@ -12,9 +12,9 @@
 Smooth scrolling
 https://stackoverflow.com/questions/7717527/smooth-scrolling-when-clicking-an-anchor-link
 */
-html {
+/* html {
     scroll-behavior: smooth;
-}
+} */
 
 /* ---- Base Rules ---- */
 body {
@@ -78,7 +78,6 @@ a {
     padding-left: 0;
     margin: 0;
     text-align: right;
-    display: flex;
 }
 
 .navbar__menu li {
@@ -234,4 +233,59 @@ section.your-active-class .landing__container::after {
     to {
         transform: rotate(360deg) translate(-1em) rotate(-360deg);
     }
+}
+
+/* scroll button */
+#button {
+    display: inline-block;
+    background-color: #FF9800;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 4px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    transition: background-color .3s,
+        opacity .5s, visibility .5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+}
+
+#button::after {
+    content: "\f077";
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 2em;
+    line-height: 50px;
+    color: #fff;
+}
+
+#button:hover {
+    cursor: pointer;
+    background-color: #333;
+}
+
+#button:active {
+    background-color: #555;
+}
+
+#button.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* */
+.hide-nav {
+    display: none;
+    opacity: 0;
+    transition: visibility 0s, opacity 1s linear;
+}
+
+.show-nav {
+    opacity: 1;
+    display: flex;
+    visibility: visible;
 }

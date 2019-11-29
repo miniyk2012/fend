@@ -20,6 +20,7 @@
 let sections = undefined;
 let navList = undefined;
 let landingPage = undefined;
+let scrollButton = undefined;
 
 /**
  * End Global Variables
@@ -57,6 +58,7 @@ function isInViewport(el) {
 
 // build the nav
 function buildNav() {
+    scrollButton = document.querySelector('#button');
     sections = document.querySelectorAll('main>section');
     navList = document.getElementById('navbar__list');
     landingPage = document.querySelector('.main__hero');
@@ -81,6 +83,7 @@ function initActive() {
 
 function addScrollListener() {
     document.addEventListener('scroll', function () {
+        showScrollButton();
         showNav();
         sections.forEach((section) => {
             const relativeLi = document.getElementById(section.dataset.nav);
@@ -100,18 +103,49 @@ document.addEventListener('DOMContentLoaded', function () {
     setTimeout(hideNav, 3000);
     addScrollListener();
     wrapperATag();
+    addATagEvent();
+    addScrollButtonListener();
 });
 
+function showScrollButton() {
+    const position = window.pageYOffset;
+    if (position > 300) {
+        scrollButton.classList.add('show');
+    }
+    else {
+        scrollButton.classList.remove('show');
+    }
+}
+
+function addATagEvent() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+}
 
 function hideNav() {
     if (!isInViewport(landingPage)) {
-        navList.style.display = 'none';
+        navList.classList.remove('show-nav');
+        navList.classList.add('hide-nav');
     }
     setTimeout(hideNav, 3000);
 }
 
 function showNav() {
-    navList.style.display = '';
+    navList.classList.remove('hide-nav');
+    navList.classList.add('show-nav');
+}
+
+function addScrollButtonListener() {
+    scrollButton.addEventListener('click', function () {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    });
 }
 /**
  * End Main Functions

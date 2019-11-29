@@ -87,9 +87,11 @@ https://www.jianshu.com/p/ad1e46faaea2
 
 todo:
 
-[] a tag用事件监控并调整, stop default event啥的
+[x] a tag用事件监控并调整, stop default event啥的
 
-[] 时间一长就把nav隐藏, 加一个向上的按钮
+[x] 时间一长就把nav隐藏
+
+[x] 加一个向上的按钮
 
 [] import放上面和下面的性能对比
 
