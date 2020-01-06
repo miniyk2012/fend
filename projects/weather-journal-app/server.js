@@ -29,3 +29,16 @@ function listening() {
     // console.log(server);
     console.log(`running on localhost: ${port}`);
 };
+
+app.get('/all', sendData);
+
+function sendData(request, response) {
+    console.log('get /all')
+    response.send(projectData);
+}
+
+app.post('/add', addData);
+
+function addData(request, response) {
+    
+}
