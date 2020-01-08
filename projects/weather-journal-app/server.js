@@ -40,5 +40,9 @@ function sendData(request, response) {
 app.post('/add', addData);
 
 function addData(request, response) {
-    
+    projectData.temperature = request.body.temperature;
+    projectData.date = request.body.date;
+    projectData.userResponse = request.body.userResponse;
+    console.log('/add: projectData=', projectData)
+    response.json({"code": "0"})
 }
