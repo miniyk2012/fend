@@ -12,11 +12,11 @@ let textapi = new Aylien({
     application_key: process.env.API_KEY
 });
 
-textapi.sentiment({
-    'text': 'John is a very good football player!'
+textapi.entityLevelSentiment({
+    'text': 'Yangkai is a good man'
 }, function (error, response) {
     if (error === null) {
-        console.log(response);
+        console.log(JSON.stringify((response)));
     }
 });
 
