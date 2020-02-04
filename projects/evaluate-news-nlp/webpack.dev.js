@@ -5,7 +5,7 @@ const merge= require('webpack-merge');
 const devConfig =  {
     mode: 'development',
     devtool: 'source-map',
-    stats: 'verbose',
+    // stats: 'verbose',
     module: {
         rules: [
             {
