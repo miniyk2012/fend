@@ -1,4 +1,8 @@
+import * as config from './config';
+
 function checkForName(inputText) {
+    console.log(config.port);
+    
     console.log("::: Running checkForName :::", inputText);
     let names = [
         "Picard",
