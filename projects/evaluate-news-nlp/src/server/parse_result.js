@@ -87,7 +87,12 @@ function parse_elsa_result(entities) {
         const entity = entities[i];
         const item = {
 
-        }
-        ret.
+        };
     }
 }
+
+function sum(a, b) {
+    return a + b;
+  }
+
+module.exports = {sum, parse_elsa_result};
