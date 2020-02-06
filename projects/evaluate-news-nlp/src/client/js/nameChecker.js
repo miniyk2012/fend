@@ -17,4 +17,11 @@ function checkForName(inputText) {
     }
 }
 
-export { checkForName }
+function checkInvalidText(inputText) {
+    if (inputText.length < 20) {
+        return 'Too short sentence'
+    }
+    return ''
+}
+
+export { checkForName, checkInvalidText}

@@ -1,8 +1,8 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const common = require('./webpack.common.js');
-const merge= require('webpack-merge');
+const merge = require('webpack-merge');
 
-const devConfig =  {
+const devConfig = {
     mode: 'development',
     devtool: 'source-map',
     // stats: 'verbose',
@@ -10,7 +10,23 @@ const devConfig =  {
         rules: [
             {
                 test: /\.scss$/,
-                use: ['style-loader', 'css-loader', 'sass-loader']
+                use: [{
+                    loader: 'style-loader', // inject CSS to page
+                }, {
+                    loader: 'css-loader', // translates CSS into CommonJS modules
+                }, {
+                    loader: 'postcss-loader', // Run post css actions
+                    options: {
+                        plugins: function () { // post css plugins, can be exported to postcss.config.js
+                            return [
+                                require('precss'),
+                                require('autoprefixer')
+                            ];
+                        }
+                    }
+                }, {
+                    loader: 'sass-loader' // compiles Sass to CSS
+                }]
             }
         ]
     },
@@ -27,4 +43,4 @@ const devConfig =  {
     ]
 }
 
-module.exports=merge(common, devConfig);
+module.exports = merge(common, devConfig);

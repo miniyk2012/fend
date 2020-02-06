@@ -1,10 +1,10 @@
-var path = require('path')
-const express = require('express')
+const express = require('express');
 const Aylien = require('aylien_textapi');
-const bodyParser = require('body-parser')
-const cors = require('cors')
-
+const bodyParser = require('body-parser');
+const cors = require('cors');
 const dotenv = require('dotenv');
+const parse_elsa_result = require('./parse_result').parse_elsa_result;
+
 dotenv.config();
 
 // set aylien API credentias
@@ -39,7 +39,8 @@ app.post('/nlp/elsa', function (req, res) {
     }, function (error, response) {
         if (error === null) {
             console.log(JSON.stringify((response)));
-            res.json(response);
+            result = parse_elsa_result(response.entities);
+            res.json(result);
         }
     });
 })

@@ -73,8 +73,8 @@
 
     return:
         [
-            {"entity": "Venice", "polarity": "negative", "confidence": 0.45, "type": "Location"},
-            {"entity": "Sistine Chapel", "polarity": "positive", "confidence": 0.6, "type": "Location"}
+            {"entity_name": "Venice", "polarity": "negative", "confidence": 0.45, "type": "Location"},
+            {"entity_name": "Sistine Chapel", "polarity": "positive", "confidence": 0.6, "type": "Location"}
         ]
 */
 
@@ -82,13 +82,17 @@ function parse_elsa_result(entities) {
     if ( entities.length == 0) {
         return [];
     }
-    let ret = [];
+    const ret = [];
     for (let i=0; i<entities.length; i++) {
         const entity = entities[i];
-        const item = {
-
-        };
+        const polarity = entity.overall_sentiment.polarity;
+        const confidence = entity.overall_sentiment.confidence;
+        const type = entity.type;
+        const entity_name = entity.mentions[0].text;
+        const item = {entity_name, polarity, confidence, type};
+        ret.push(item);
     }
+    return ret;
 }
 
 function sum(a, b) {

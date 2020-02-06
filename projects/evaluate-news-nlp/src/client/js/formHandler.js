@@ -1,5 +1,5 @@
 import * as config from './config';
-import { checkForName } from './nameChecker';
+import { checkInvalidText } from './nameChecker';
 
 function elsaSubmit(event) {
     event.preventDefault();
@@ -7,9 +7,11 @@ function elsaSubmit(event) {
 
     // check what text was put into the form field
     const formText = document.getElementById('elsa-phrase').value;
-    console.log(checkForName);
-    checkForName(formText);
-
+    const alertMessage = checkInvalidText(formText);
+    if (alertMessage != '') {
+        alert(alertMessage);
+        return
+    }
     console.log("::: Elsa Submitted :::");
     fetch(`http://localhost:${config.port}/nlp/elsa`,
         {
@@ -20,14 +22,16 @@ function elsaSubmit(event) {
             body: JSON.stringify({ 'text': formText })
         })
         .then(res => res.json())
-        .then(function (res) {
-            document.getElementById('results').innerHTML = res.message
+        .then(function (result) {
+            render_result(result);
+            
         });
 }
 
 
 function render_result(result) {
     
+    document.getElementById('results').innerHTML = res.message
 }
 
 
