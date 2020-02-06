@@ -4,13 +4,19 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const parse_elsa_result = require('./parse_result').parse_elsa_result;
+const config = require('./config');
 
 dotenv.config();
 
 // set aylien API credentias
+// const textapi = new Aylien({
+//     application_id: process.env.API_ID,
+//     application_key: process.env.API_KEY
+// });
+
 const textapi = new Aylien({
-    application_id: process.env.API_ID,
-    application_key: process.env.API_KEY
+    application_id: config.API_ID,
+    application_key: config.API_KEY
 });
 
 const app = express()
@@ -45,7 +51,7 @@ app.post('/nlp/elsa', function (req, res) {
     });
 })
 
-const port = 8085;
+const port = config.PORT;
 // designates what port the app will listen to for incoming requests
 app.listen(port, function () {
     console.log(`Example app listening on port ${port}!`)
