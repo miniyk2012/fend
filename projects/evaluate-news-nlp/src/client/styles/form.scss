@@ -4,11 +4,14 @@ form {
     padding: 40px;
 }
 
-textarea {
+textarea, input {
     padding: 5px 20px;
     width: 100%;
-    line-height: 50px;
     margin: 10px 0;
 }
 
+
+textarea {
+    line-height: 100px;
+}
 

@@ -11,6 +11,11 @@ test('not a sentence', () => {
     expect(alertMessage).toBe('This is not a sentence!');
 });
 
+test('not a sentence2', () => {
+    const alertMessage = checkInvalidText(',.....      :::][][].');
+    expect(alertMessage).toBe('This is not a sentence!');
+});
+
 test('valid sentence', () => {
     const alertMessage = checkInvalidText('You are a good man hello');
     expect(alertMessage).toBe('');

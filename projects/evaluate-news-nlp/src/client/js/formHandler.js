@@ -24,15 +24,40 @@ function elsaSubmit(event) {
         .then(res => res.json())
         .then(function (result) {
             render_result(result);
-            
         });
 }
 
-
+/* 
+  result: 
+  [
+    {"entity_name": "Venice", "polarity": "negative", "confidence": 0.45, "type": "Location"},
+    {"entity_name": "Sistine Chapel", "polarity": "positive", "confidence": 0.6, "type": "Location"}
+  ]
+*/
 function render_result(result) {
+    const tbody = document.querySelector('#elsa-table>tbody');
+
+    tbody.innerHTML='';
+    if (result.length === 0) {
+        alert('Entity Level Sentiment Analysis result is empty!');
+    }
     
-    document.getElementById('results').innerHTML = res.message
+    for (let i = 0; i < result.length; i++) {
+        const tr = createTr(result[i]);
+        tbody.appendChild(tr);
+    }
 }
 
+function createTr(values) {
+    const tr = document.createElement('tr');
+    const theadTr = document.querySelector('#elsa-table>thead>tr');
+    for (let i = 0; i < theadTr.children.length; i++) {
+        const th = document.createElement('th');
+        th.setAttribute('scope', 'col');
+        th.innerText = values[theadTr.children[i].innerText];
+        tr.appendChild(th);
+    }
+    return tr;
+}
 
 export { elsaSubmit }
