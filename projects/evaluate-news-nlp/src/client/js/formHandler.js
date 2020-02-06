@@ -13,7 +13,7 @@ function elsaSubmit(event) {
         return
     }
     console.log("::: Elsa Submitted :::");
-    fetch(`http://localhost:${config.port}/nlp/elsa`,
+    fetch(`http://localhost:${config.PORT}/nlp/elsa`,
         {
             headers: {
                 'Content-Type': 'application/json'

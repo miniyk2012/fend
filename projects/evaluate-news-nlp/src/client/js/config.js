@@ -1,3 +1,3 @@
-const port = 8085;
+const PORT = 8085;
 
-export { port };
+export { PORT };

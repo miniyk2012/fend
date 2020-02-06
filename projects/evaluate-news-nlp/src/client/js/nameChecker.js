@@ -1,5 +1,3 @@
-import * as config from './config';
-
 function checkForName(inputText) {
     console.log(config.port);
     
@@ -18,10 +16,16 @@ function checkForName(inputText) {
 }
 
 function checkInvalidText(inputText) {
+    inputText = inputText.trim().replace(/\n/g, " ");
     if (inputText.length < 20) {
-        return 'Too short sentence'
+        return 'Too short sentence!'
     }
+    const regExp = /^\w+/gm;
+    if (!regExp.test(inputText)) {
+        return 'This is not a sentence!'
+    }
+
     return ''
 }
 
-export { checkForName, checkInvalidText}
+export { checkForName, checkInvalidText }
