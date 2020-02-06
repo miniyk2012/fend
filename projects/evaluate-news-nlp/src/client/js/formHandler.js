@@ -12,6 +12,8 @@ function elsaSubmit(event) {
         alert(alertMessage);
         return
     }
+    const tbody = document.querySelector('#elsa-table>tbody');
+    tbody.innerHTML='';
     console.log("::: Elsa Submitted :::");
     fetch(`http://localhost:${config.PORT}/nlp/elsa`,
         {
@@ -36,8 +38,6 @@ function elsaSubmit(event) {
 */
 function render_result(result) {
     const tbody = document.querySelector('#elsa-table>tbody');
-
-    tbody.innerHTML='';
     if (result.length === 0) {
         alert('Entity Level Sentiment Analysis result is empty!');
     }
