@@ -9,8 +9,6 @@ npm test
 
 # build the front-end then start a server
 npm start
-
-# 
 ```
 then open http://localhost:8085/
 
