@@ -1,3 +1,20 @@
+# install
+npm install
+
+# Simple Usage
+```
+# run test
+npm test
+
+
+# build the front-end then start a server
+npm start
+
+# 
+```
+then open http://localhost:8085/
+
+
 # Project Instructions
 
 This repo is your starter code for the project. It is the same as the starter code we began with in lesson 2. Install and configure Webpack just as we did in the course. Feel free to refer to the course repo as you build this one, and remember to make frequent commits and to create and merge branches as necessary!
