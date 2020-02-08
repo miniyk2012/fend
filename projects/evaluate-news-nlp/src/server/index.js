@@ -51,6 +51,20 @@ app.post('/nlp/elsa', function (req, res) {
     });
 })
 
+// Sentiment Analysis
+app.post('/nlp/sentiment', function (req, res) {
+    console.log(req.body);
+    textapi.sentiment({
+        'url': req.body.url,
+    }, function (error, response) {
+        if (error === null) {
+            console.log(JSON.stringify((response)));
+            res.json(response);
+        }
+    });
+})
+
+
 const port = config.PORT;
 // designates what port the app will listen to for incoming requests
 app.listen(port, function () {

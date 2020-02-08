@@ -1,4 +1,4 @@
-const { checkInvalidText } = require('./nameChecker');
+const { checkInvalidText, checkUrl } = require('./nameChecker');
 
 
 test('empty sentence', () => {
@@ -24,4 +24,17 @@ test('valid sentence', () => {
 test('valid sentence2', () => {
     const alertMessage = checkInvalidText('You are a good man\n, hello');
     expect(alertMessage).toBe('');
+});
+
+
+test('valid url', () =>{
+    expect(checkUrl('http://www.example.com/wpstyle/?p=364')).toBe('');
+    expect(checkUrl('http://foo.com/blah_blah')).toBe('');
+    expect(checkUrl('https://foo.com/blah_blah')).toBe('');
+});
+
+test('invalid url', () =>{
+    expect(checkUrl('file:///blah/index.html')).toBe('This is not a valid url!');
+    expect(checkUrl('http://../')).toBe('This is not a valid url!');
+    expect(checkUrl('http://foo.bar?q=Spaces should be encoded')).toBe('This is not a valid url!');
 });

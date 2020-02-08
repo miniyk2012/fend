@@ -28,4 +28,13 @@ function checkInvalidText(inputText) {
     return ''
 }
 
-export { checkForName, checkInvalidText }
+function checkUrl(url) {
+    url = url.trim();
+    const regExp = /^(https?|chrome):\/\/[^\s$.?#].[^\s]*$/gm;
+    if (!regExp.test(url)) {
+        return 'This is not a valid url!'
+    }
+    return ''
+}
+
+export { checkForName, checkInvalidText, checkUrl }

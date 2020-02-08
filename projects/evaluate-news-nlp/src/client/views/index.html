@@ -24,26 +24,51 @@
                     form="elsa">The Sistine Chapel is beautiful, but Venice smells really bad</textarea>
                 <input type="submit" value="Entity Level Sentiment Analysis">
             </form>
-            <section>
+        </section>
 
-                <section id="elsa-result">
-                    <strong>Elsa Results:</strong>
-                    <div id="results">
-                        <table class="table" id="elsa-table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">entity_name</th>
-                                    <th scope="col">polarity</th>
-                                    <th scope="col">confidence</th>
-                                    <th scope="col">type</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+        <section id="elsa-result">
+            <strong>Elsa Results:</strong>
+            <div id="results">
+                <table class="table" id="elsa-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">entity_name</th>
+                            <th scope="col">polarity</th>
+                            <th scope="col">confidence</th>
+                            <th scope="col">type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </section>
 
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
+        <section>
+            <form id="sentiment" onsubmit="return Client.sentimentSubmit(event)">
+                <input id="sentiment-url" type="text" name="input" value="https://stackoverflow.com/questions/46946380/fetch-api-request-timeout">
+                <input type="submit" value="Sentiment Analysis">
+            </form>
+        </section>
+
+        <section id="sentiment-result">
+            <strong>Sentiment Results:</strong>
+            <div id="results">
+                <table class="table" id="sentiment-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">polarity</th>
+                            <th scope="col">subjectivity</th>
+                            <th scope="col">text</th>
+                            <th scope="col">polarity_confidence</th>
+                            <th scope="col">subjectivity_confidence</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </section>
     </main>
 
     <footer>

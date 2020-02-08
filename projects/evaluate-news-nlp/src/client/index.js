@@ -1,5 +1,4 @@
-import { checkForName } from './js/nameChecker'
-import { elsaSubmit } from './js/formHandler'
+import { elsaSubmit, sentimentSubmit } from './js/formHandler'
 import './styles/resets.scss'
 import './styles/base.scss'
 import './styles/header.scss'
@@ -11,7 +10,7 @@ import 'bootstrap'
 console.log("CHANGE!!");
 
 export {
-    checkForName,
-    elsaSubmit
+    elsaSubmit,
+    sentimentSubmit
 }
 
