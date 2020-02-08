@@ -1,5 +1,5 @@
 import * as config from './config';
-import { checkInvalidText, checkUrl } from './nameChecker';
+import { checkInvalidText, checkUrl, _fetch } from './nameChecker';
 import * as underscore from 'underscore';
 
 function elsaSubmit(event) {
@@ -16,18 +16,18 @@ function elsaSubmit(event) {
     const tbody = document.querySelector('#elsa-table>tbody');
     tbody.innerHTML='';
     console.log("::: Elsa Submitted :::");
-    fetch(`http://localhost:${config.PORT}/nlp/elsa`,
+    _fetch(fetch(`http://localhost:${config.PORT}/nlp/elsa`,
         {
             headers: {
                 'Content-Type': 'application/json'
             },
             method: 'POST',
             body: JSON.stringify({ 'text': formText }),
-        })
+        }), 5000)
         .then(res => res.json())
         .then(function (result) {
             render_elsa_result(result);
-        });
+        }).catch(err => alert('Time out!'));
 }
 
 function sentimentSubmit(event) {
@@ -43,17 +43,17 @@ function sentimentSubmit(event) {
     tbody.innerHTML='';
     console.log("::: Sentiment Submitted :::");
 
-    fetch(`http://localhost:${config.PORT}/nlp/sentiment`, {
+    _fetch(fetch(`http://localhost:${config.PORT}/nlp/sentiment`, {
         headers: {
             'Content-Type': 'application/json'
         },
         method: 'POST',
         body: JSON.stringify({ 'url': inputUrl }),
-    })
+    }), 5000)
     .then(res => res.json())
     .then(function name(result) {
         render_sentiment_result(result);
-    });
+    }).catch(err => alert('Time out!'));
 }
 
 /* 
