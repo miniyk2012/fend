@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "webpack --config webpack.prod.js && node src/server/index.js",
+    "start": "node src/server/index.js",
     "build-prod": "webpack --config webpack.prod.js",
     "build-dev": "webpack-dev-server  --config webpack.dev.js --open"
   },
@@ -14,13 +14,14 @@
   "description": "",
   "dependencies": {
     "aylien_textapi": "^0.7.0",
-    "body-parser": "^1.19.0",
+    "body-parser": "^1f.19.0",
     "bootstrap": "^4.4.1",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.1",
+    "sweetalert2": "^9.7.2",
     "underscore": "^1.9.2",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10"

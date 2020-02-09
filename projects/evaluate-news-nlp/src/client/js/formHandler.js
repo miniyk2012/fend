@@ -1,6 +1,8 @@
 import * as config from './config';
 import { checkInvalidText, checkUrl, _fetch } from './nameChecker';
 import * as underscore from 'underscore';
+import Swal from 'sweetalert2';
+
 
 function elsaSubmit(event) {
     event.preventDefault();
@@ -10,7 +12,12 @@ function elsaSubmit(event) {
     const formText = document.getElementById('elsa-phrase').value.trim();
     const alertMessage = checkInvalidText(formText);
     if (alertMessage != '') {
-        alert(alertMessage);
+        Swal.fire({
+            title: 'Error',
+            text: alertMessage,
+            icon: 'error',
+            confirmButtonText: 'OK'
+        });
         return;
     }
     const tbody = document.querySelector('#elsa-table>tbody');
@@ -27,7 +34,12 @@ function elsaSubmit(event) {
         .then(res => res.json())
         .then(function (result) {
             render_elsa_result(result);
-        }).catch(err => alert('Time out!'));
+        }).catch(err => Swal.fire({
+            title: 'Error',
+            text: 'Timeout!',
+            icon: 'error',
+            confirmButtonText: 'OK'
+        }));
 }
 
 function sentimentSubmit(event) {
@@ -36,8 +48,13 @@ function sentimentSubmit(event) {
     const inputUrl = document.getElementById('sentiment-url').value.trim();
     const alertMessage = checkUrl(inputUrl);
     if (alertMessage != '') {
-        alert(alertMessage);
-        return
+        Swal.fire({
+            title: 'Error',
+            text: alertMessage,
+            icon: 'error',
+            confirmButtonText: 'OK'
+        });
+        return;
     }
     const tbody = document.querySelector('#sentiment-table>tbody');
     tbody.innerHTML='';
@@ -53,7 +70,12 @@ function sentimentSubmit(event) {
     .then(res => res.json())
     .then(function name(result) {
         render_sentiment_result(result);
-    }).catch(err => alert('Time out!'));
+    }).catch(err => Swal.fire({
+        title: 'Error',
+        text: 'Timeout!',
+        icon: 'error',
+        confirmButtonText: 'OK'
+    }));
 }
 
 /* 
