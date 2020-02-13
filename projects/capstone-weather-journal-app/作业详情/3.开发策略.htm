@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<!-- saved from url=(0230)https://classroom.udacity.com/nanodegrees/nd0011-cn/parts/dd8d5fb1-34e5-4174-8373-2bc8f28f3c4f/modules/eb6b8a12-4ba5-449b-9f27-be55cc41cee3/lessons/f04d6770-d0f2-4c4f-b5e2-199db5d3d53e/concepts/be409c00-ffa9-4140-aefb-eb035d43da07 -->
+<html class="cookies cors history json video websockets es6object fetch localstorage"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style class="vjs-styles-defaults">
+      .video-js {
+        width: 300px;
+        height: 150px;
+      }
+
+      .vjs-fluid {
+        padding-top: 56.25%
+      }
+    </style><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>前端开发工程师 - Udacity</title><link rel="stylesheet" href="./3.开发策略_files/fonts.min.css"><link rel="stylesheet" href="./3.开发策略_files/katex.min.css" crossorigin="anonymous"><meta name="Baiduspider" content="nofollow"><meta name="Baiduspider" content="noarchive"><link rel="apple-touch-icon" href="https://classroom.udacity.com/touch-icon.png"><link rel="manifest" href="https://classroom.udacity.com/manifest.json"><script type="text/javascript" async="" src="./3.开发策略_files/linkid.js"></script><script type="text/javascript" src="./3.开发策略_files/2059d2614a"></script><script type="text/javascript" async="" src="./3.开发策略_files/analytics.js"></script><script type="text/javascript" async="" src="./3.开发策略_files/av16vnft"></script><script type="text/javascript" async="" src="./3.开发策略_files/blueshift.js"></script><script src="./3.开发策略_files/nr-spa-1099.min.js"></script><script type="text/javascript" async="" src="./3.开发策略_files/analytics.min.js"></script><script>window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{s.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(21),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,s){try{l?l-=1:o(s||new UncaughtException(t,e,n),!0)}catch(f){try{i("ierr",[f,c.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t,e){var n=e?null:c.now();i("err",[t,n])}var i=t("handle"),a=t(22),s=t("ee"),c=t("loader"),f=t("gos"),u=window.onerror,d=!1,p="nr@seenError",l=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(13),t(12),"addEventListener"in window&&t(6),c.xhrWrappable&&t(14),d=!0)}s.on("fn-start",function(t,e,n){d&&(l+=1)}),s.on("fn-err",function(t,e,n){d&&!n[p]&&(f(n,p,function(){return!0}),this.thrown=!0,o(n))}),s.on("fn-end",function(){d&&!this.thrown&&l>0&&(l-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(){M++,N=y.hash,this[u]=g.now()}function o(){M--,y.hash!==N&&i(0,!0);var t=g.now();this[h]=~~this[h]+t-this[u],this[d]=t}function i(t,e){E.emit("newURL",[""+y,e])}function a(t,e){t.on(e,function(){this[e]=g.now()})}var s="-start",c="-end",f="-body",u="fn"+s,d="fn"+c,p="cb"+s,l="cb"+c,h="jsTime",m="fetch",v="addEventListener",w=window,y=w.location,g=t("loader");if(w[v]&&g.xhrWrappable){var b=t(10),x=t(11),E=t(8),O=t(6),P=t(13),R=t(7),T=t(14),L=t(9),j=t("ee"),S=j.get("tracer");t(15),g.features.spa=!0;var N,M=0;j.on(u,r),j.on(p,r),j.on(d,o),j.on(l,o),j.buffer([u,d,"xhr-done","xhr-resolved"]),O.buffer([u]),P.buffer(["setTimeout"+c,"clearTimeout"+s,u]),T.buffer([u,"new-xhr","send-xhr"+s]),R.buffer([m+s,m+"-done",m+f+s,m+f+c]),E.buffer(["newURL"]),b.buffer([u]),x.buffer(["propagate",p,l,"executor-err","resolve"+s]),S.buffer([u,"no-"+u]),L.buffer(["new-jsonp","cb-start","jsonp-error","jsonp-end"]),a(T,"send-xhr"+s),a(j,"xhr-resolved"),a(j,"xhr-done"),a(R,m+s),a(R,m+"-done"),a(L,"new-jsonp"),a(L,"jsonp-end"),a(L,"cb-start"),E.on("pushState-end",i),E.on("replaceState-end",i),w[v]("hashchange",i,!0),w[v]("load",i,!0),w[v]("popstate",function(){i(0,M>1)},!0)}},{}],5:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(13),s=t(12),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",p="resource",l="-start",h="-end",m="fn"+l,v="fn"+h,w="bstTimer",y="pushState",g=t("loader");g.features.stn=!0,t(8);var b=NREUM.o.EV;o.on(m,function(t,e){var n=t[0];n instanceof b&&(this.bstStart=g.now())}),o.on(v,function(t,e){var n=t[0];n instanceof b&&i("bst",[n,e,this.bstStart,g.now()])}),a.on(m,function(t,e,n){this.bstStart=g.now(),this.bstType=n}),a.on(v,function(t,e){i(w,[e,this.bstStart,g.now(),this.bstType])}),s.on(m,function(){this.bstStart=g.now()}),s.on(v,function(t,e){i(w,[e,this.bstStart,g.now(),"requestAnimationFrame"])}),o.on(y+l,function(t){this.time=g.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(p)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(p)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],6:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),s=t(24)(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){var n=t[1],r=c(n,"nr@wrapped",function(){function t(){if("function"==typeof n.handleEvent)return n.handleEvent.apply(n,arguments)}var e={object:t,"function":n}[typeof n];return e?s(e,"fn-",null,e.name||"anonymous"):n});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],7:[function(t,e,n){function r(t,e,n){var r=t[e];"function"==typeof r&&(t[e]=function(){var t=r.apply(this,arguments);return o.emit(n+"start",arguments,t),t.then(function(e){return o.emit(n+"end",[null,e],t),e},function(e){throw o.emit(n+"end",[e],t),e})})}var o=t("ee").get("fetch"),i=t(21);e.exports=o;var a=window,s="fetch-",c=s+"body-",f=["arrayBuffer","blob","json","text","formData"],u=a.Request,d=a.Response,p=a.fetch,l="prototype";u&&d&&p&&(i(f,function(t,e){r(u[l],e,c),r(d[l],e,c)}),r(a,"fetch",s),o.on(s+"end",function(t,e){var n=this;if(e){var r=e.headers.get("content-length");null!==r&&(n.rxSize=r),o.emit(s+"done",[null,e],n)}else o.emit(s+"done",[t],n)}))},{}],8:[function(t,e,n){var r=t("ee").get("history"),o=t(24)(r);e.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],9:[function(t,e,n){function r(t){function e(){c.emit("jsonp-end",[],p),t.removeEventListener("load",e,!1),t.removeEventListener("error",n,!1)}function n(){c.emit("jsonp-error",[],p),c.emit("jsonp-end",[],p),t.removeEventListener("load",e,!1),t.removeEventListener("error",n,!1)}var r=t&&"string"==typeof t.nodeName&&"script"===t.nodeName.toLowerCase();if(r){var o="function"==typeof t.addEventListener;if(o){var a=i(t.src);if(a){var u=s(a),d="function"==typeof u.parent[u.key];if(d){var p={};f.inPlace(u.parent,[u.key],"cb-",p),t.addEventListener("load",e,!1),t.addEventListener("error",n,!1),c.emit("new-jsonp",[t.src],p)}}}}}function o(){return"addEventListener"in window}function i(t){var e=t.match(u);return e?e[1]:null}function a(t,e){var n=t.match(p),r=n[1],o=n[3];return o?a(o,e[r]):e[r]}function s(t){var e=t.match(d);return e&&e.length>=3?{key:e[2],parent:a(e[1],window)}:{key:t,parent:window}}var c=t("ee").get("jsonp"),f=t(24)(c);if(e.exports=c,o()){var u=/[?&](?:callback|cb)=([^&#]+)/,d=/(.*)\.([^.]+)/,p=/^(\w+)(\.|$)(.*)$/,l=["appendChild","insertBefore","replaceChild"];f.inPlace(HTMLElement.prototype,l,"dom-"),f.inPlace(HTMLHeadElement.prototype,l,"dom-"),f.inPlace(HTMLBodyElement.prototype,l,"dom-"),c.on("dom-start",function(t){r(t[0])})}},{}],10:[function(t,e,n){var r=t("ee").get("mutation"),o=t(24)(r),i=NREUM.o.MO;e.exports=r,i&&(window.MutationObserver=function(t){return this instanceof i?new i(o(t,"fn-")):i.apply(this,arguments)},MutationObserver.prototype=i.prototype)},{}],11:[function(t,e,n){function r(t){var e=a.context(),n=s(t,"executor-",e),r=new f(n);return a.context(r).getCtx=function(){return e},a.emit("new-promise",[r,e],e),r}function o(t,e){return e}var i=t(24),a=t("ee").get("promise"),s=i(a),c=t(21),f=NREUM.o.PR;e.exports=a,f&&(window.Promise=r,["all","race"].forEach(function(t){var e=f[t];f[t]=function(n){function r(t){return function(){a.emit("propagate",[null,!o],i),o=o||!t}}var o=!1;c(n,function(e,n){Promise.resolve(n).then(r("all"===t),r(!1))});var i=e.apply(f,arguments),s=f.resolve(i);return s}}),["resolve","reject"].forEach(function(t){var e=f[t];f[t]=function(t){var n=e.apply(f,arguments);return t!==n&&a.emit("propagate",[t,!0],n),n}}),f.prototype["catch"]=function(t){return this.then(null,t)},f.prototype=Object.create(f.prototype,{constructor:{value:r}}),c(Object.getOwnPropertyNames(f),function(t,e){try{r[e]=f[e]}catch(n){}}),a.on("executor-start",function(t){t[0]=s(t[0],"resolve-",this),t[1]=s(t[1],"resolve-",this)}),a.on("executor-err",function(t,e,n){t[1](n)}),s.inPlace(f.prototype,["then"],"then-",o),a.on("then-start",function(t,e){this.promise=e,t[0]=s(t[0],"cb-",this),t[1]=s(t[1],"cb-",this)}),a.on("then-end",function(t,e,n){this.nextPromise=n;var r=this.promise;a.emit("propagate",[r,!0],n)}),a.on("cb-end",function(t,e,n){a.emit("propagate",[n,!0],this.nextPromise)}),a.on("propagate",function(t,e,n){this.getCtx&&!e||(this.getCtx=function(){if(t instanceof Promise)var e=a.context(t);return e&&e.getCtx?e.getCtx():this})}),r.toString=function(){return""+f})},{}],12:[function(t,e,n){var r=t("ee").get("raf"),o=t(24)(r),i="equestAnimationFrame";e.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],13:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t(24)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";e.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],14:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",s)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,y,"fn-",s)}function i(t){g.push(t),h&&(x?x.then(a):v?v(a):(E=-E,O.data=E))}function a(){for(var t=0;t<g.length;t++)r([],g[t]);g.length&&(g=[])}function s(t,e){return e}function c(t,e){for(var n in t)e[n]=t[n];return e}t(6);var f=t("ee"),u=f.get("xhr"),d=t(24)(u),p=NREUM.o,l=p.XHR,h=p.MO,m=p.PR,v=p.SI,w="readystatechange",y=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],g=[];e.exports=u;var b=window.XMLHttpRequest=function(t){var e=new l(t);try{u.emit("new-xhr",[e],e),e.addEventListener(w,o,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(c(l,b),b.prototype=l.prototype,d.inPlace(b.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),h){var x=m&&m.resolve();if(!v&&!m){var E=1,O=document.createTextNode(E);new h(a).observe(O,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===w||a()})},{}],15:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!e.aborted){if(n.duration=a.now()-this.startTime,4===t.readyState){e.status=t.status;var i=o(t,this.lastSize);if(i&&(n.rxSize=i),this.sameOrigin){var c=t.getResponseHeader("X-NewRelic-App-Data");c&&(e.cat=c.split(", ").pop())}}else e.status=0;n.cbTime=this.cbTime,f.emit("xhr-done",[t],t),s("xhr",[e,n,this.startTime])}}}function o(t,e){var n=t.responseType;if("json"===n&&null!==e)return e;var r="arraybuffer"===n||"blob"===n||"json"===n?t.response:t.responseText;return h(r)}function i(t,e){var n=c(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(16),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,p=t("id"),l=t(19),h=t(18),m=window.XMLHttpRequest;a.features.xhr=!0,t(14),f.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,l&&(l>34||l<10)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var i=h(r);i&&(n.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{f.emit("internal-error",[n])}catch(r){}}};for(var s=0;s<d;s++)e.addEventListener(u[s],this.listener,!1)}),f.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),f.on("xhr-load-added",function(t,e){var n=""+p(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,e){var n=""+p(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],e)}),f.on("removeEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],e)}),f.on("fn-start",function(t,e,n){e instanceof m&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),f.on("fn-end",function(t,e){this.xhrCbStart&&f.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,e],e)})}},{}],16:[function(t,e,n){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],17:[function(t,e,n){function r(){}function o(t,e,n){return function(){return i(t,[f.now()].concat(s(arguments)),e?null:this,n),e?void 0:this}}var i=t("handle"),a=t(21),s=t(22),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(t,e){u[e]=o(p+e,!0,"api")}),u.addPageAction=o(p+"addPageAction",!0),u.setCurrentRouteName=o(p+"routeName",!0),e.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,e){var n={},r=this,o="function"==typeof e;return i(l+"tracer",[f.now(),t,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return e.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],n),t}finally{c.emit("fn-end",[f.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){h[e]=o(l+e)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now()])}},{}],18:[function(t,e,n){e.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}},{}],19:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],20:[function(t,e,n){function r(t,e){if(!o)return!1;if(t!==o)return!1;if(!e)return!0;if(!i)return!1;for(var n=i.split("."),r=e.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var s=navigator.userAgent,c=s.match(a);c&&s.indexOf("Chrome")===-1&&s.indexOf("Chromium")===-1&&(o="Safari",i=c[1])}e.exports={agent:o,version:i,match:r}},{}],21:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],22:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(o<0?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],23:[function(t,e,n){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],24:[function(t,e,n){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(22),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;e.exports=function(t,e){function n(t,e,n,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof n?n(r,a):n||{}}catch(f){p([f,"",[r,a,o],s])}u(e+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(e+"err",[r,a,d],s),d}finally{u(e+"end",[r,a,c],s)}}return r(t)?t:(e||(e=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,e,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<e.length;c++)s=e[c],a=t[s],r(a)||(t[s]=n(a,f?s+o:o,i,s))}function u(n,r,o){if(!c||e){var i=c;c=!0;try{t.emit(n,r,o,e)}catch(a){p([a,n,r,o])}c=i}}function d(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){p([r])}for(var o in t)s.call(t,o)&&(e[o]=t[o]);return e}function p(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=o),n.inPlace=f,n.flag=a,n}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function n(n,r,o,i){if(!p.aborted||i){t&&t(n,r,o);for(var a=e(o),s=m(n),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[g[n]];return d&&d.push([b,n,r,a]),a}}function l(t,e){y[t]=m(t).concat(e)}function h(t,e){var n=y[t];if(n)for(var r=0;r<n.length;r++)n[r]===e&&n.splice(r,1)}function m(t){return y[t]||[]}function v(t){return d[t]=d[t]||o(n)}function w(t,e){f(t,function(t,n){e=e||"feature",g[n]=e,e in u||(u[e]=[])})}var y={},g={},b={on:l,addEventListener:l,removeEventListener:h,emit:n,get:v,listeners:m,context:e,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(u.api||u.feature)&&(p.aborted=!0,u=p.backlog={})}var s="nr@context",c=t("gos"),f=t(21),u={},d={},p=e.exports=o();p.backlog=u},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!E++){var t=x.info=NREUM.info,e=l.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return u.abort();f(g,function(e,n){t[e]||(t[e]=n)}),c("mark",["onload",a()+x.offset],null,"api");var n=l.createElement("script");n.src="https://"+t.agent,e.parentNode.insertBefore(n,e)}}function o(){"complete"===l.readyState&&i()}function i(){c("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-x.offset}var s=(new Date).getTime(),c=t("handle"),f=t(21),u=t("ee"),d=t(20),p=window,l=p.document,h="addEventListener",m="attachEvent",v=p.XMLHttpRequest,w=v&&v.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:v,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var y=""+location,g={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-spa-1099.min.js"},b=v&&w&&w[h]&&!/CriOS/.test(navigator.userAgent),x=e.exports={offset:s,now:a,origin:y,features:{},xhrWrappable:b,userAgent:d};t(17),l[h]?(l[h]("DOMContentLoaded",i,!1),p[h]("load",r,!1)):(l[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",s],null,"api");var E=0,O=t(23)},{}]},{},["loader",2,15,5,3,4]);
+    ;NREUM.info={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",licenseKey:"2059d2614a",applicationID:"17871435",sa:1}</script><script>!function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"sgmt.udacity.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.1.0";
+  }}();</script><link href="./3.开发策略_files/11.49631.css" rel="stylesheet"><link href="./3.开发策略_files/app.8d3c8.css" rel="stylesheet"><style type="text/css">.input-range__slider {
+  appearance: none;
+  background: #3f51b5;
+  border: 1px solid #3f51b5;
+  border-radius: 100%;
+  cursor: pointer;
+  display: block;
+  height: 1rem;
+  margin-left: -0.5rem;
+  margin-top: -0.65rem;
+  outline: none;
+  position: absolute;
+  top: 50%;
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+  width: 1rem; }
+  .input-range__slider:active {
+    transform: scale(1.3); }
+  .input-range__slider:focus {
+    box-shadow: 0 0 0 5px rgba(63, 81, 181, 0.2); }
+  .input-range--disabled .input-range__slider {
+    background: #cccccc;
+    border: 1px solid #cccccc;
+    box-shadow: none;
+    transform: none; }
+
+.input-range__slider-container {
+  transition: left 0.3s ease-out; }
+
+.input-range__label {
+  color: #aaaaaa;
+  font-family: "Helvetica Neue", san-serif;
+  font-size: 0.8rem;
+  transform: translateZ(0);
+  white-space: nowrap; }
+
+.input-range__label--min,
+.input-range__label--max {
+  bottom: -1.4rem;
+  position: absolute; }
+
+.input-range__label--min {
+  left: 0; }
+
+.input-range__label--max {
+  right: 0; }
+
+.input-range__label--value {
+  position: absolute;
+  top: -1.8rem; }
+
+.input-range__label-container {
+  left: -50%;
+  position: relative; }
+  .input-range__label--max .input-range__label-container {
+    left: 50%; }
+
+.input-range__track {
+  background: #eeeeee;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  display: block;
+  height: 0.3rem;
+  position: relative;
+  transition: left 0.3s ease-out, width 0.3s ease-out; }
+  .input-range--disabled .input-range__track {
+    background: #eeeeee; }
+
+.input-range__track--background {
+  left: 0;
+  margin-top: -0.15rem;
+  position: absolute;
+  right: 0;
+  top: 50%; }
+
+.input-range__track--active {
+  background: #3f51b5; }
+
+.input-range {
+  height: 1rem;
+  position: relative;
+  width: 100%; }</style><style type="text/css">.rc-tooltip.rc-tooltip-zoom-enter,
+.rc-tooltip.rc-tooltip-zoom-leave {
+  display: block;
+}
+.rc-tooltip-zoom-enter,
+.rc-tooltip-zoom-appear {
+  opacity: 0;
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  animation-play-state: paused;
+}
+.rc-tooltip-zoom-leave {
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.6, -0.3, 0.74, 0.05);
+  animation-play-state: paused;
+}
+.rc-tooltip-zoom-enter.rc-tooltip-zoom-enter-active,
+.rc-tooltip-zoom-appear.rc-tooltip-zoom-appear-active {
+  animation-name: rcToolTipZoomIn;
+  animation-play-state: running;
+}
+.rc-tooltip-zoom-leave.rc-tooltip-zoom-leave-active {
+  animation-name: rcToolTipZoomOut;
+  animation-play-state: running;
+}
+@keyframes rcToolTipZoomIn {
+  0% {
+    opacity: 0;
+    transform-origin: 50% 50%;
+    transform: scale(0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform-origin: 50% 50%;
+    transform: scale(1, 1);
+  }
+}
+@keyframes rcToolTipZoomOut {
+  0% {
+    opacity: 1;
+    transform-origin: 50% 50%;
+    transform: scale(1, 1);
+  }
+  100% {
+    opacity: 0;
+    transform-origin: 50% 50%;
+    transform: scale(0, 0);
+  }
+}
+.rc-tooltip {
+  position: absolute;
+  z-index: 1070;
+  display: block;
+  visibility: visible;
+  font-size: 12px;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+.rc-tooltip-hidden {
+  display: none;
+}
+.rc-tooltip-placement-top,
+.rc-tooltip-placement-topLeft,
+.rc-tooltip-placement-topRight {
+  padding: 5px 0 9px 0;
+}
+.rc-tooltip-placement-right,
+.rc-tooltip-placement-rightTop,
+.rc-tooltip-placement-rightBottom {
+  padding: 0 5px 0 9px;
+}
+.rc-tooltip-placement-bottom,
+.rc-tooltip-placement-bottomLeft,
+.rc-tooltip-placement-bottomRight {
+  padding: 9px 0 5px 0;
+}
+.rc-tooltip-placement-left,
+.rc-tooltip-placement-leftTop,
+.rc-tooltip-placement-leftBottom {
+  padding: 0 9px 0 5px;
+}
+.rc-tooltip-inner {
+  padding: 8px 10px;
+  color: #fff;
+  text-align: left;
+  text-decoration: none;
+  background-color: #373737;
+  border-radius: 6px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.17);
+  min-height: 34px;
+}
+.rc-tooltip-arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+}
+.rc-tooltip-placement-top .rc-tooltip-arrow,
+.rc-tooltip-placement-topLeft .rc-tooltip-arrow,
+.rc-tooltip-placement-topRight .rc-tooltip-arrow {
+  bottom: 4px;
+  margin-left: -5px;
+  border-width: 5px 5px 0;
+  border-top-color: #373737;
+}
+.rc-tooltip-placement-top .rc-tooltip-arrow {
+  left: 50%;
+}
+.rc-tooltip-placement-topLeft .rc-tooltip-arrow {
+  left: 15%;
+}
+.rc-tooltip-placement-topRight .rc-tooltip-arrow {
+  right: 15%;
+}
+.rc-tooltip-placement-right .rc-tooltip-arrow,
+.rc-tooltip-placement-rightTop .rc-tooltip-arrow,
+.rc-tooltip-placement-rightBottom .rc-tooltip-arrow {
+  left: 4px;
+  margin-top: -5px;
+  border-width: 5px 5px 5px 0;
+  border-right-color: #373737;
+}
+.rc-tooltip-placement-right .rc-tooltip-arrow {
+  top: 50%;
+}
+.rc-tooltip-placement-rightTop .rc-tooltip-arrow {
+  top: 15%;
+  margin-top: 0;
+}
+.rc-tooltip-placement-rightBottom .rc-tooltip-arrow {
+  bottom: 15%;
+}
+.rc-tooltip-placement-left .rc-tooltip-arrow,
+.rc-tooltip-placement-leftTop .rc-tooltip-arrow,
+.rc-tooltip-placement-leftBottom .rc-tooltip-arrow {
+  right: 4px;
+  margin-top: -5px;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #373737;
+}
+.rc-tooltip-placement-left .rc-tooltip-arrow {
+  top: 50%;
+}
+.rc-tooltip-placement-leftTop .rc-tooltip-arrow {
+  top: 15%;
+  margin-top: 0;
+}
+.rc-tooltip-placement-leftBottom .rc-tooltip-arrow {
+  bottom: 15%;
+}
+.rc-tooltip-placement-bottom .rc-tooltip-arrow,
+.rc-tooltip-placement-bottomLeft .rc-tooltip-arrow,
+.rc-tooltip-placement-bottomRight .rc-tooltip-arrow {
+  top: 4px;
+  margin-left: -5px;
+  border-width: 0 5px 5px;
+  border-bottom-color: #373737;
+}
+.rc-tooltip-placement-bottom .rc-tooltip-arrow {
+  left: 50%;
+}
+.rc-tooltip-placement-bottomLeft .rc-tooltip-arrow {
+  left: 15%;
+}
+.rc-tooltip-placement-bottomRight .rc-tooltip-arrow {
+  right: 15%;
+}
+</style><link rel="stylesheet" type="text/css" href="./3.开发策略_files/0.63cd2.css"><script charset="utf-8" src="./3.开发策略_files/vendors_routes-courses_routes-nanodegrees_routes-settings.b9155.js"></script><link rel="stylesheet" type="text/css" href="./3.开发策略_files/2.d0881.css"><script charset="utf-8" src="./3.开发策略_files/vendors_routes-courses_routes-nanodegrees.18912.js"></script><link rel="stylesheet" type="text/css" href="./3.开发策略_files/14.1d72a.css"><script charset="utf-8" src="./3.开发策略_files/vendors_routes-nanodegrees.77184.js"></script><link rel="stylesheet" type="text/css" href="./3.开发策略_files/1.527f7.css"><script charset="utf-8" src="./3.开发策略_files/routes-courses_routes-nanodegrees.9ead2.js"></script><link rel="stylesheet" type="text/css" href="./3.开发策略_files/8.4d93b.css"><script charset="utf-8" src="./3.开发策略_files/routes-nanodegrees.6c60e.js"></script><link rel="stylesheet" type="text/css" href="./3.开发策略_files/10.240cb.css"><script charset="utf-8" src="./3.开发策略_files/survey-modal.fa708.js"></script></head><body lang="zh-CN" dir="ltr" style=""><div id="app"><div id="main"><style type="text/css">
+#intercom-container {
+  display: none;
+}
+</style><div class="content"><div data-test="nanodegree-container"><div><noscript></noscript><div><div class="_layout--large-nav--1elMR"><div class="_layout-module--container--3f2U4"><ul class="_layout-module--a11y-nav--vkRI0"><li><a href="https://classroom.udacity.com/nanodegrees/nd0011-cn/parts/dd8d5fb1-34e5-4174-8373-2bc8f28f3c4f/modules/eb6b8a12-4ba5-449b-9f27-be55cc41cee3/lessons/f04d6770-d0f2-4c4f-b5e2-199db5d3d53e/concepts/be409c00-ffa9-4140-aefb-eb035d43da07#content">Jump to content</a></li><li><a href="mailto:a11y@udacity.com?subject=Accessibility%20Support" target="_blank">Email for accessibility support</a></li></ul><nav class="_layout-module--nav--3qaiq _layout-module--secondary-only--33dGC _layout-module--hidden--2IaXy"><div class="_layout-module--nav-contents--3VsBp"><div id="main-layout-sidebar" class="_layout-module--secondary-nav--dElFh"><div data-test="lesson-sidebar"><div class="_sidebar--sidebar--1jCxg"><h3 class="_sidebar--header--2BaH_"><a href="https://classroom.udacity.com/nanodegrees/nd0011-cn/parts/dd8d5fb1-34e5-4174-8373-2bc8f28f3c4f"><span class="_sidebar--title-content--tLGxZ"><span class="_sidebar--arrow--2Hns-"><i class="vds-icon vds-icon--lg" role="img" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M20.589 23.84l-10.175-7.13c-.422-.297-.541-.903-.265-1.356a.947.947 0 0 1 .276-.292L20.6 8.152c.425-.29.99-.153 1.259.304.092.157.141.338.141.524v14.04c0 .542-.409.98-.912.98a.868.868 0 0 1-.5-.16z" fill-rule="evenodd"></path></svg></i></span><span class="_sidebar--title--3HHFG text--nowrap-ellipsis--TMdB3"><span>项目：</span><span class="_sidebar--title-text--vcBON text--nowrap-ellipsis--TMdB3"> 旅行应用</span></span></span></a></h3><div class="_sidebar--sections--2TxEN"><div role="group" aria-expanded="false" class="_section--section--3V1-y shared--section--3e1zX _section--_hide-shadow--1yGng"><a href="https://classroom.udacity.com/nanodegrees/nd0011-cn/parts/dd8d5fb1-34e5-4174-8373-2bc8f28f3c4f/modules/eb6b8a12-4ba5-449b-9f27-be55cc41cee3/lessons/f04d6770-d0f2-4c4f-b5e2-199db5d3d53e/concepts/be409c00-ffa9-4140-aefb-eb035d43da07#" class="_section--header--hPsXJ shared--header--3QkFS"><h2>搜索</h2><i class="vds-icon vds-icon--sm vds-color--silver" role="img"><span class="vds-visually-hidden">搜索</span><svg viewBox="0 0 32 32"><path d="M21.176 19.762l4.531 4.53a1 1 0 0 1-1.414 1.415l-4.531-4.531a8.5 8.5 0 1 1 1.414-1.414zM14.5 21a6.5 6.5 0 1 0 0-13 6.5 6.5 0 0 0 0 13z" fill-rule="nonzero"></path></svg></i></a></div><div role="group" aria-expanded="false" class="_section--section--3V1-y shared--section--3e1zX _section--_hide-shadow--1yGng"><a href="https://classroom.udacity.com/nanodegrees/nd0011-cn/parts/dd8d5fb1-34e5-4174-8373-2bc8f28f3c4f/modules/eb6b8a12-4ba5-449b-9f27-be55cc41cee3/lessons/f04d6770-d0f2-4c4f-b5e2-199db5d3d53e/concepts/be409c00-ffa9-4140-aefb-eb035d43da07#" class="_section--header--hPsXJ shared--header--3QkFS"><h2>课程资源</h2><span class="_section--expand--3Y-E2 shared--expand--239lE"><i class="vds-icon vds-icon--sm" role="img"><span class="vds-visually-hidden">打开</span><svg viewBox="0 0 32 32"><path d="M8.16 11.411l7.13 10.175c.297.422.903.541 1.356.265a.947.947 0 0 0 .292-.276l6.91-10.175c.29-.425.153-.99-.304-1.259A1.033 1.033 0 0 0 23.02 10H8.98c-.542 0-.98.409-.98.912 0 .178.055.351.16.5z" fill-rule="evenodd"></path></svg></i></span></a></div><div role="group" aria-expanded="true" class="_section--section-selected--24hRk shared--section-expanded--2eoTJ shared--section--3e1zX _section--_hide-shadow--1yGng"><a href="https://classroom.udacity.com/nanodegrees/nd0011-cn/parts/dd8d5fb1-34e5-4174-8373-2bc8f28f3c4f/modules/eb6b8a12-4ba5-449b-9f27-be55cc41cee3/lessons/f04d6770-d0f2-4c4f-b5e2-199db5d3d53e/concepts/be409c00-ffa9-4140-aefb-eb035d43da07#" aria-owns="tree-概念" class="_section--header-expanded--2PtoU shared--header-expanded--290TG shared--header--3QkFS"><h2>概念</h2><span class="_section--collapse--3crCv shared--collapse--2w1x2"><i class="vds-icon vds-icon--sm" role="img"><span class="vds-visually-hidden">关闭</span><svg viewBox="0 0 32 32"><path d="M8.16 11.411l7.13 10.175c.297.422.903.541 1.356.265a.947.947 0 0 0 .292-.276l6.91-10.175c.29-.425.153-.99-.304-1.259A1.033 1.033 0 0 0 23.02 10H8.98c-.542 0-.98.409-.98.912 0 .178.055.351.16.5z" fill-rule="evenodd"></path></svg></i></span></a><div id="tree-概念"><ol class="index--contents-list--33vHB"><li id="contents-list-scroll-target-644b7809-6e07-4168-ba8d-dc5bc5bcd5c8" class="_item--item--dTIux"><a title="1. 项目概述" href="https://classroom.udacity.com/nanodegrees/nd0011-cn/parts/dd8d5fb1-34e5-4174-8373-2bc8f28f3c4f/modules/eb6b8a12-4ba5-449b-9f27-be55cc41cee3/lessons/f04d6770-d0f2-4c4f-b5e2-199db5d3d53e/concepts/644b7809-6e07-4168-ba8d-dc5bc5bcd5c8"><span class="_item--waypoint-check--nmzcM"><i class="vds-icon vds-icon--sm" role="img" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M7.707 17.093a1 1 0 0 0-1.414 1.414l7.2 7.2a1 1 0 0 0 1.564-.192l10.8-18a1 1 0 1 0-1.714-1.03L14 23.388l-6.294-6.294z" fill-rule="nonzero"></path></svg></i></span> 1. 项目概述</a></li><li id="contents-list-scroll-target-65c2663e-4eb8-46b9-8a3f-e88e928875df" class="_item--item--dTIux"><a title="2. 项目说明" href="https://classroom.udacity.com/nanodegrees/nd0011-cn/parts/dd8d5fb1-34e5-4174-8373-2bc8f28f3c4f/modules/eb6b8a12-4ba5-449b-9f27-be55cc41cee3/lessons/f04d6770-d0f2-4c4f-b5e2-199db5d3d53e/concepts/65c2663e-4eb8-46b9-8a3f-e88e928875df"><span class="_item--waypoint-check--nmzcM"><i class="vds-icon vds-icon--sm" role="img" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M7.707 17.093a1 1 0 0 0-1.414 1.414l7.2 7.2a1 1 0 0 0 1.564-.192l10.8-18a1 1 0 1 0-1.714-1.03L14 23.388l-6.294-6.294z" fill-rule="nonzero"></path></svg></i></span> 2. 项目说明</a></li><li id="contents-list-scroll-target-be409c00-ffa9-4140-aefb-eb035d43da07" class="_item--item-selected--3LMMf"><a title="3. 开发策略" href="https://classroom.udacity.com/nanodegrees/nd0011-cn/parts/dd8d5fb1-34e5-4174-8373-2bc8f28f3c4f/modules/eb6b8a12-4ba5-449b-9f27-be55cc41cee3/lessons/f04d6770-d0f2-4c4f-b5e2-199db5d3d53e/concepts/be409c00-ffa9-4140-aefb-eb035d43da07"><span class="_item--waypoint-check--nmzcM"><i class="vds-icon vds-icon--sm" role="img" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M7.707 17.093a1 1 0 0 0-1.414 1.414l7.2 7.2a1 1 0 0 0 1.564-.192l10.8-18a1 1 0 1 0-1.714-1.03L14 23.388l-6.294-6.294z" fill-rule="nonzero"></path></svg></i></span> 3. 开发策略</a></li><li id="contents-list-scroll-target-51287eb2-ed5e-4df4-9e5d-d64742fbc2ca" class="_item--item--dTIux"><a title="4. 项目：旅行应用" href="https://classroom.udacity.com/nanodegrees/nd0011-cn/parts/dd8d5fb1-34e5-4174-8373-2bc8f28f3c4f/modules/eb6b8a12-4ba5-449b-9f27-be55cc41cee3/lessons/f04d6770-d0f2-4c4f-b5e2-199db5d3d53e/project"><span class="_item--waypoint-star--1dLwl"><i class="vds-icon vds-icon--sm" role="img" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M15.794 23.048l-5.63 2.852a1 1 0 0 1-1.436-1.067l1.066-5.987-4.479-4.207a1 1 0 0 1 .546-1.72l6.224-.87 2.819-5.505a1 1 0 0 1 1.78 0l2.818 5.504 6.224.872a1 1 0 0 1 .546 1.719l-4.478 4.207 1.065 5.987a1 1 0 0 1-1.437 1.067l-5.628-2.852z" fill-rule="nonzero"></path></svg></i></span> 4. 项目：旅行应用</a></li></ol></div></div></div><div class="_sidebar--footer--2i1oy"></div></div></div></div></div></nav><main class="_layout-module--main--20EWg"><div class="_layout-module--title-area--1yynf"><div class="_header-module--header--1boX-"><div><div data-test="concept-header"><nav class="index--dark-header--2SHyn index--_header--36qYf"><div class="vds-flex vds-flex--align-center vds-flex--full vds-flex--justify-between vds-flex--spacing-2x"><div class="vds-flex__item"><div class="hamburger--hamburger--1oS_7 index--hamburger--31PjM"><a href="https://classroom.udacity.com/nanodegrees/nd0011-cn/parts/dd8d5fb1-34e5-4174-8373-2bc8f28f3c4f/modules/eb6b8a12-4ba5-449b-9f27-be55cc41cee3/lessons/f04d6770-d0f2-4c4f-b5e2-199db5d3d53e/concepts/be409c00-ffa9-4140-aefb-eb035d43da07#" class="hamburger--hamburger-link--3-KRS"><i class="vds-icon vds-color--cerulean" role="img"><span class="vds-visually-hidden">Toggle Sidebar</span><svg viewBox="0 0 32 32"><path d="M8 23a1 1 0 0 1 0-2h16a1 1 0 0 1 0 2H8zm0-6a1 1 0 0 1 0-2h16a1 1 0 0 1 0 2H8zm0-6a1 1 0 0 1 0-2h16a1 1 0 0 1 0 2H8z" fill-rule="nonzero"></path></svg></i></a></div></div><div class="vds-flex__item"><h1 id="header-title" aria-live="assertive">开发策略</h1></div><div class="vds-flex__item"><div class="_header--right-node--tOqX9"><div><span class="index--from-tablet--cciH6"><button class="vds-button vds-button--minimal vds-button--small" aria-busy="false" type="button"><span class="vds-button__content">发送课程建议</span></button></span><span class="index--until-tablet--3TJ_9"><button class="vds-button vds-button--minimal vds-button__icon vds-button__icon--only" aria-busy="false" type="button"><span class="vds-button__content"><i class="vds-icon vds-color--cerulean" role="img" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M18.245 16.566L16.6 17.8a1 1 0 0 1-1.2 0l-1.6-1.2a1.009 1.009 0 0 1-.093.107l-2 2a1 1 0 0 1-1.414-1.414l1.899-1.9-4.193-3.143L8 20.998 24.001 21 24 12.25l-4.196 3.147 1.903 1.896a1 1 0 0 1-1.414 1.414l-2.1-2.102.052-.039zM9.667 11L16 15.75l6.33-4.748L9.667 11zM6 11.002C6 9.9 6.89 9 7.993 9h16.014C25.108 9 26 9.904 26 11.002v9.996C26 22.1 25.11 23 24.007 23H7.993A2.002 2.002 0 0 1 6 20.998v-9.996z" fill-rule="nonzero"></path></svg></i><span class="vds-visually-hidden"></span></span></button></span></div></div></div></div></nav></div></div></div></div><div class="_layout-module--content-area--tGmoA" style="background-color: rgb(250, 251, 252);"><div aria-hidden="true" class="_layout-module--hidden-header--3JZ5t"><div class="_header-module--header--1boX-"><div><div data-test="concept-header"><nav class="index--dark-header--2SHyn index--_header--36qYf"><div class="vds-flex vds-flex--align-center vds-flex--full vds-flex--justify-between vds-flex--spacing-2x"><div class="vds-flex__item"><div class="hamburger--hamburger--1oS_7 index--hamburger--31PjM"><a href="https://classroom.udacity.com/nanodegrees/nd0011-cn/parts/dd8d5fb1-34e5-4174-8373-2bc8f28f3c4f/modules/eb6b8a12-4ba5-449b-9f27-be55cc41cee3/lessons/f04d6770-d0f2-4c4f-b5e2-199db5d3d53e/concepts/be409c00-ffa9-4140-aefb-eb035d43da07#" class="hamburger--hamburger-link--3-KRS"><i class="vds-icon vds-color--cerulean" role="img"><span class="vds-visually-hidden">Toggle Sidebar</span><svg viewBox="0 0 32 32"><path d="M8 23a1 1 0 0 1 0-2h16a1 1 0 0 1 0 2H8zm0-6a1 1 0 0 1 0-2h16a1 1 0 0 1 0 2H8zm0-6a1 1 0 0 1 0-2h16a1 1 0 0 1 0 2H8z" fill-rule="nonzero"></path></svg></i></a></div></div><div class="vds-flex__item"><h1 id="header-title" aria-live="assertive">开发策略</h1></div><div class="vds-flex__item"><div class="_header--right-node--tOqX9"><div><span class="index--from-tablet--cciH6"><button class="vds-button vds-button--minimal vds-button--small" aria-busy="false" type="button"><span class="vds-button__content">发送课程建议</span></button></span><span class="index--until-tablet--3TJ_9"><button class="vds-button vds-button--minimal vds-button__icon vds-button__icon--only" aria-busy="false" type="button"><span class="vds-button__content"><i class="vds-icon vds-color--cerulean" role="img" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M18.245 16.566L16.6 17.8a1 1 0 0 1-1.2 0l-1.6-1.2a1.009 1.009 0 0 1-.093.107l-2 2a1 1 0 0 1-1.414-1.414l1.899-1.9-4.193-3.143L8 20.998 24.001 21 24 12.25l-4.196 3.147 1.903 1.896a1 1 0 0 1-1.414 1.414l-2.1-2.102.052-.039zM9.667 11L16 15.75l6.33-4.748L9.667 11zM6 11.002C6 9.9 6.89 9 7.993 9h16.014C25.108 9 26 9.904 26 11.002v9.996C26 22.1 25.11 23 24.007 23H7.993A2.002 2.002 0 0 1 6 20.998v-9.996z" fill-rule="nonzero"></path></svg></i><span class="vds-visually-hidden"></span></span></button></span></div></div></div></div></nav></div></div></div></div><div id="content"></div><div id="main-layout-content" aria-labelledby="header-title" class="_body-module--body--UXv_5"><div data-test="concept-main" class="_main--main--3mpPA"><div class="_main--content-container--ILkoI"><div><div class="index--container--2OwOl"><div class="index--atom--lmAIo layout--content--3Smmq"><div class="ltr"><div class="index-module--markdown--2MdcR ureact-markdown "><h1 id="-">开发策略</h1>
+<p>在开始编写任何代码之前，对项目进行规划都非常重要。将项目分解为一些<strong>小的</strong>组件，并为每一组件制定策略，有了这些“好下手”的组件，就可以更容易地调试和解决出现的问题了。</p>
+<p>你可以随意按照自己的设计工作流程实现功能，但是如果遇到困难，下面是一些步骤提示，可以帮助你开始项目：</p>
+<ol>
+<li><strong>复制项目 3 天气应用作为起始代码。</strong>复制之后，修改项目名称，避免覆盖旧项目，我们将以这个项目为基础，进行开发。</li>
+<li><strong>针对此项目设置 webpack。</strong>使用项目 4 学习的技能设置开发环境。<ul>
+<li>首先，创建 <code>src</code> 文件夹。<code>src</code> 文件夹中应该包含 client 和 server 文件夹。</li>
+<li>server 文件夹中应包含 <code>server.js</code> 内容。</li>
+<li>client 文件夹中应包含 <code>js</code>、<code>media</code>、<code>styles</code>、<code>views</code> 文件夹以及一个 <code>index.js</code> 文件</li>
+<li>应用的 js 代码应该位于 <code>js</code> 文件中，css 代码位于 <code>styles</code> 文件夹，<code>index.html</code> 位于 <code>views</code> 文件夹。</li>
+<li>将样式表从 <code>.css</code> 文件转换为 <code>.scss</code> 文件。</li>
+<li>注意，webpack 会生成一个 <code>dist</code> 文件夹。需要更新服务器 js 使其引用 <code>dist</code> 文件夹。（提示：<code>app.use(express.这里需要修改为什么？)</code>）</li>
+<li>client 文件夹中的 <code>index.js</code> 文件应该导入（import）应用 JavaScript 的主函数，导入 scss，你的应用 JavaScript 中应该导出（export）其主函数。要完成导入，需要先在哪里将其导出？</li>
+<li>在项目 4 中，你可能将事件监听器添加到了按钮身上。对于这个项目，你应该要使用 <code>.addEventListener()</code>，如果我们要从 <code>application.js</code> 文件中导出函数，那么事件监听器没办法触及。要调用导出的函数，可以将事件监听器放到哪里呢？</li>
+<li>src 文件夹设置好之后，开始使用 webpack。你应该已经在项目 3 安装了一些依赖项，我们需要添加 babel、babel-loader、css-loader、file-loader、html-loader、html-webpack-plugin、node-sass、sass-loader、style-loader、webpack、webpack-cli 以及 webpack-dev-server。参考项目 4，应该已经使用过大部分。</li>
+<li>接下来，更新 <code>package.json</code> 中的脚本，需要有 <code>test</code>、<code>dev</code>、<code>start</code> 和 <code>build</code>。
+<strong>注意：</strong>start 是针对 Express 服务器，dev 使你可以使用 Web 开发服务器，根据你的设置，可以使用一个命令运行这两个脚本。</li>
+<li>设置 webpack 配置，这应该与语言处理应用程序 webpack 配置非常相似。如果你未在语言处理应用程序中使用 webpack 开发服务器，则需要在此处使用。此外，使用源映射能帮助你调试 css。</li>
+<li>要运行 webpack，首先需要运行 <code>npm run dev</code>，然后运行 <code>npm build</code> 来创建 <code>dist</code> 文件夹。创建完成后，你可以同时运行 <code>npm run dev</code> 和 <code>npm start</code> 来热加载项目以及可以正常运行的 Express 环境。</li>
+</ul>
+</li>
+<li><strong>创建一个 <a target="_blank" href="http://www.geonames.org/export/web-services.html">Geonames</a> 账号。</strong></li>
+<li><strong>用 Geonames API 替换 OpenWeather API。</strong>你已经有一个可以使用的 API。需要调整哪些信息，使其可以输入城市而不是输入邮政编码？我们要获取纬度、经度、国家信息，而不是获取温度、感受和日期。<ul>
+<li>天气数据数组的名称不同，需要将名称修改为什么？</li>
+<li>天气数据在数组中只有 1 个对象，Geonames API 输出多个对象。如何调用第一个对象？</li>
+</ul>
+</li>
+<li><strong>引入倒计时。</strong>你需要在项目中添加一个文本字段来获取日期。<ul>
+<li>应该是什么类型的输入？跨浏览器渲染怎么办？</li>
+<li>我们想要了解还有多久开始旅行，那么如何从 DOM 中获得信息以及如何判断该日期还有多久呢？</li>
+<li>拥有数据后，将其存储在何处？</li>
+</ul>
+</li>
+<li><strong>创建一个 <a target="_blank" href="https://darksky.net/dev">Dark Sky</a> 账号。</strong></li>
+<li><strong>集成 Dark Sky API 的方式与集成 geoname API 的方式类似。</strong>要获取未来的天气，需要调整哪些信息？收到 CORS 错误？请查看<a target="_blank" href="https://medium.com/@dtkatz/3-ways-to-fix-the-cors-error-and-how-access-control-allow-origin-works-d97d55946d9">这篇文章</a>了解如何处理。
+ <strong>注意：</strong>如果你看到自己的应用可以运行，但是需要点击几次才能获取所有数据，思考一下为何如此。这可能是项目中最具挑战性的部分。在<strong>开始之前</strong>部分中，有一个主要提示。如果你没办法处理，应用中仍然需要点击几次才可以正常运行，也可以在提交项目时，从审阅专家处获得指导。<ul>
+<li>Dark Sky API 如何区分当前的天气预报和未来的天气预报？API 是否有一些对应的改动？</li>
+<li>如何包含日期？日期应该是什么格式？如何将其修改为适当的格式？</li>
+</ul>
+</li>
+<li><strong>创建一个 <a target="_blank" href="https://pixabay.com/api/docs/">Pixabay</a> 账号。</strong></li>
+<li><strong>像集成 Geoname/Dark Sky API 一样，集成 Pixabay API。</strong>要向 API 提交哪些信息来获取适当的图像？如果没有结果怎么办？<ul>
+<li>要设置哪些参数来获取图像？</li>
+<li>如何将 location 字段的数据提交到 Pixabay URL 参数，且 url 中不包含空格？</li>
+</ul>
+</li>
+<li><strong>从建议列表中选择一项进行添加。</strong>建议列表中的各项复杂度差异较大，但你必须至少选择一项，其他项可选。</li>
+<li><strong>重构。</strong>此时，你的代码应该可以正常工作。理想情况下，重构是在开发过程中进行的，但是作为一个新手开发者，你很可能没有全面了解如何正确地进行重构。我们来将项目清理一下。<ul>
+<li>你是否使用了 linter 运行代码？我们要求你的代码完成后仍然遵循优达学城的标准，但是通过 <a target="_blank" href="https://eslint.org/demo">eslinter</a> 运行代码，可以帮助你开始进行重构。</li>
+<li>是否使用了 ES6 的 const 和 let？</li>
+<li>是否所有函数都使用了 ES6 的箭头函数？</li>
+<li>你的代码是否遵循 DRY（Don't Repeat Yourself 不要重复自己）准则？有没有代码片段可以整合为帮助函数避免冗余？</li>
+<li>代码结构如何？你是否使用了合适作用域的变量，为主要功能创建了函数？如果你是 JavaScript 编程新手，可能会使用一个全局作用域的变量，后续了解有关闭包和设计模式的知识后，就能避免这种情况。但是将代码放入函数中是使代码更具可读性的一种好方法，也是避免全局作用域变量的一种好方法。</li>
+<li>项目文件是否使用了有意义的名称？</li>
+</ul>
+</li>
+<li><strong>添加 Service Worker。</strong>参照项目 4 的指导说明。</li>
+</ol>
+</div></div><span></span></div></div></div><div><div class="index--container--2OwOl"><div class="index--atom--lmAIo layout--content--3Smmq"><div class="ltr"><div class="index-module--markdown--2MdcR ureact-markdown "><h2 id="-">进一步扩展项目 -  路线图/策略</h2>
+<p>以下选项中，你需要在项目中实现<strong>至少一项</strong>。如果你准备添加以下功能，建议推迟添加 Service Worker，直到接近提交为止，可以先将相关代码注释掉。</p>
+<ul>
+<li>添加结束日期，显示行程长度。</li>
+<li>从 Pixabay API 中提取图像，当输入的位置没有显示任何结果时（比如一些不常见的旅行目的地），提取一张该国家的图像。</li>
+<li>允许用户在同一行程中添加多个目的地。<ul>
+<li>为添加的位置获取天气。</li>
+</ul>
+</li>
+<li>允许用户添加酒店和航班数据。<ul>
+<li>可以住多个酒店？多个航班？</li>
+</ul>
+</li>
+<li>集成 <a target="_blank" href="https://restcountries.eu/">REST Countries API</a> 获取准备访问的国家数据。</li>
+<li>允许用户删除行程。</li>
+<li>使用<a target="_blank" href="https://www.taniarascia.com/how-to-use-local-storage-with-javascript/">本地存储（local storage）</a>来保存数据，以便关闭后重新访问时，这些信息仍然存在。</li>
+<li>提取多天的天气预报，而不是仅提取一天的天气。</li>
+<li>在天气预报中纳入图标。</li>
+<li>允许用户打印行程或导出为 PDF。</li>
+<li>允许用户为其行程添加待办事项列表。</li>
+<li>允许用户添加其他行程（这可能需要重做之前的很多内容，但值得挑战）。<ul>
+<li>通过倒计时自动对其他行程进行分类。</li>
+<li>将过期的行程放到最下方，并且对其样式进行更改，使其可以明显表现为已过期。</li>
+</ul>
+</li>
+</ul>
+</div></div><span></span></div></div></div><div><div class="index--container--2OwOl"><div class="index--atom--lmAIo layout--content--3Smmq"><div class="ltr"><div class="index-module--markdown--2MdcR ureact-markdown "><h2 id="-">版本控制</h2>
+<p>虽然不是强制要求，但是我们建议你从一开始就使用 git。建议经常 commit，并且使用格式清晰的 commit 消息（遵循优达学城的 <a target="_blank" href="https://github.com/udacity/frontend-nanodegree-styleguide-zh/blob/master/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%BA%B3%E7%B1%B3%E5%AD%A6%E4%BD%8D%E6%A0%B7%E5%BC%8F%E6%8C%87%E5%8D%97%20-%20Git.md">git 样式指南</a>）。</p>
+</div></div><span></span></div></div></div><div><div class="index--container--2OwOl"><div class="index--atom--lmAIo layout--content--3Smmq"><div class="ltr"><div class="index-module--markdown--2MdcR ureact-markdown "><h2 id="-">优达学城前端样式指南</h2>
+<p>你的代码应遵循优达学城前端样式指南的规范：</p>
+<ul>
+<li><a target="_blank" href="https://github.com/udacity/frontend-nanodegree-styleguide-zh/blob/master/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%BA%B3%E7%B1%B3%E5%AD%A6%E4%BD%8D%E6%A0%B7%E5%BC%8F%E6%8C%87%E5%8D%97%20-%20CSS.md">CSS 样式指南</a></li>
+<li><a target="_blank" href="https://github.com/udacity/frontend-nanodegree-styleguide-zh/blob/master/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%BA%B3%E7%B1%B3%E5%AD%A6%E4%BD%8D%E6%A0%B7%E5%BC%8F%E6%8C%87%E5%8D%97%20-%20HTML.md">HTML 样式指南</a></li>
+<li><a target="_blank" href="https://github.com/udacity/frontend-nanodegree-styleguide-zh/blob/master/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%BA%B3%E7%B1%B3%E5%AD%A6%E4%BD%8D%E6%A0%B7%E5%BC%8F%E6%8C%87%E5%8D%97%20-%20JavaScript.md">JavaScript 样式指南</a></li>
+<li><a target="_blank" href="https://github.com/udacity/frontend-nanodegree-styleguide-zh/blob/master/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%BA%B3%E7%B1%B3%E5%AD%A6%E4%BD%8D%E6%A0%B7%E5%BC%8F%E6%8C%87%E5%8D%97%20-%20Git.md">Git 样式指南</a></li>
+</ul>
+</div></div><span></span></div></div></div><div><div class="index--container--2OwOl"><div class="index--atom--lmAIo layout--content--3Smmq"><div class="ltr"><div class="index-module--markdown--2MdcR ureact-markdown "><h2 id="-">仍然不确定如何开始？</h2>
+<p>重申一下，请确认自己对前面的所有课程内容熟练掌握，尤其是天气和语言处理应用程序，在本项目中你应该可以灵活参考这些内容。</p>
+<p>关于抄袭的说明：查看他人的代码了解实现想法，然后从头编写自己的代码是可以的。但是<strong>请不要复制他人的代码</strong>，不论是全部还是部分。更多信息可以参考<a target="_blank" href="https://udacity.kf5.com/hc/kb/article/1223644/">优达学城诚信准则</a>。</p>
+</div></div><span></span></div></div></div></div><div><div class="_main--footer-container--3vC-_"><button class="vds-button vds-button--secondary" aria-busy="false" type="button"><span class="vds-button__content">下一项</span></button></div></div><noscript></noscript><noscript></noscript></div></div></div></main></div></div></div></div></div></div></div></div><script src="./3.开发策略_files/vendors_app.e0406.js"></script><script src="./3.开发策略_files/app.ad265.js"></script><iframe id="intercom-frame" style="position: absolute !important; opacity: 0 !important; width: 1px !important; height: 1px !important; top: 0 !important; left: 0 !important; border: none !important; display: block !important; z-index: -1 !important;" aria-hidden="true" tabindex="-1" title="Intercom" src="./3.开发策略_files/saved_resource.html"></iframe><div id="intercom-css-container"><style data-emotion="intercom-global"></style><style data-emotion="intercom"></style></div><div id="intercom-container" class="intercom-namespace"><style>html.intercom-mobile-messenger-active,html.intercom-mobile-messenger-active > body,html.intercom-modal-open,#intercom-container-body{overflow:hidden !important;}html.intercom-mobile-messenger-active,html.intercom-mobile-messenger-active > body{position:static !important;}html.intercom-mobile-messenger-active > body{height:0 !important;margin:0 !important;}iframe#intercom-frame{position:absolute !important;opacity:0 !important;width:1px !important;height:1px !important;top:0 !important;left:0 !important;border:none !important;display:block !important;z-index:-1 !important;}</style><div class="intercom-app" aria-live="polite"><iframe allowfullscreen="" class="intercom-launcher-frame intercom-1p3djve e1ur5zlj0" name="intercom-launcher-frame" title="Intercom live chat" data-intercom-frame="true" src="./3.开发策略_files/saved_resource(1).html"></iframe><div id="intercom-modal-container"></div></div></div></body></html>
