@@ -1,4 +1,4 @@
-import {PORT, APIKEY} from './config.js'
+import { PORT, APIKEY } from './config.js'
 
 // Create a new date instance dynamically with JS
 let d = new Date();
@@ -23,7 +23,7 @@ async function getTemperature(zip) {
 
 async function addWeather(data) {
     try {
-        let response = await fetch('/add', {
+        let response = await fetch(`http://localhost:${PORT}/add`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -42,7 +42,7 @@ async function addWeather(data) {
 async function updateUI() {
     let data;
     try {
-        const response = await fetch('/all');
+        const response = await fetch(`http://localhost:${PORT}/all`);
         data = await response.json()
     } catch (error) {
         console.log('Oops, error: ', error);
@@ -88,3 +88,4 @@ function addGenerateClimateListener() {
     });
 }
 
+export { addGenerateClimateListener }
