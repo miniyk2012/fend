@@ -4,7 +4,7 @@ const merge = require('webpack-merge');
 
 const devConfig = {
     mode: 'development',
-    devtool: 'source-map',
+    devtool: 'source-map',  // 可以在浏览器上找到压缩前的js文件, 进行debug
     // stats: 'verbose',
     module: {
         rules: [
