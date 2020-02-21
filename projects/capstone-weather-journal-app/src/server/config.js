@@ -1,3 +1,3 @@
 const PORT = 8085;
 
-export { PORT };
+module.exports = { PORT };
