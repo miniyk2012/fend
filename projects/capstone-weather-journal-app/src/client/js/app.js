@@ -1,16 +1,14 @@
-/* Global Variables */
+import {PORT, APIKEY} from './config.js'
 
 // Create a new date instance dynamically with JS
 let d = new Date();
 let newDate = d.getMonth() + '.' + d.getDate() + '.' + d.getFullYear();
 
-const apiKey = "4f2af255bfb64b7b3fde5682af1b8bdb"
-
 async function getTemperature(zip) {
     // https://openweathermap.org/api
     // api.openweathermap.org/data/2.5/weather?zip=94040,us
     const url = new URL('http://api.openweathermap.org/data/2.5/weather');
-    const params = { zip: zip, APPID: apiKey }
+    const params = { zip: zip, APPID: APIKEY }
     url.search = new URLSearchParams(params).toString();
     try {
         let response = await fetch(url);
@@ -65,25 +63,28 @@ function updateText(id, desc, value) {
     divEle.innerHTML = '';
     const p = document.createElement("p");
     const h1 = document.createElement("h1");
-    p.innerHTML=`${desc}: ${value}`;
+    p.innerHTML = `${desc}: ${value}`;
     h1.appendChild(p);
     divEle.appendChild(h1);
 
 }
 
-document.querySelector('#generate').addEventListener('click', async function (e) {
-    const zip = document.querySelector('#zip').value;
-    const temperature = await getTemperature(zip);
-    const userResponse = document.querySelector('.myInput').value;
-    const data = {
-        temperature,
-        date: newDate,
-        userResponse,
-    }
-    try {
-        await addWeather(data);
-    } catch (error) {
-        console.log('Oops, error: ', error);
-    }
-    await updateUI();
-});
+function addGenerateClimateListener() {
+    document.querySelector('#generate').addEventListener('click', async function (e) {
+        const zip = document.querySelector('#zip').value;
+        const temperature = await getTemperature(zip);
+        const userResponse = document.querySelector('.myInput').value;
+        const data = {
+            temperature,
+            date: newDate,
+            userResponse,
+        }
+        try {
+            await addWeather(data);
+        } catch (error) {
+            console.log('Oops, error: ', error);
+        }
+        await updateUI();
+    });
+}
+

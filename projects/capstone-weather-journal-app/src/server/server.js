@@ -1,3 +1,5 @@
+const config = require('./config');
+
 // Setup empty JS object to act as endpoint for all routes
 projectData = {};
 
@@ -18,11 +20,11 @@ const cors = require('cors');
 app.use(cors());
 
 // Initialize the main project folder
-app.use(express.static('website'));
+app.use(express.static('dist'));
 
 
 // Setup Server
-const port = 3000;
+const port = config.PORT;
 const server = app.listen(port, listening);
 
 function listening() {
