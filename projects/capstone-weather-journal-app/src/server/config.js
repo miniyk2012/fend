@@ -1,4 +1,6 @@
-const PORT = 8085;
+const PORT = 8086;
 const GEO_USERNAME = 'miniyk2020';
+const DARK_SKY_API_KEY = '64de110df410d7eb64e5e78a0fa6d5bc';
+const PIXABAY_API_KEY = '15357895-c3d3764b0ae691420e86eeeb2';
 
-module.exports = { PORT };
+module.exports = { PORT, GEO_USERNAME, DARK_SKY_API_KEY, PIXABAY_API_KEY };
