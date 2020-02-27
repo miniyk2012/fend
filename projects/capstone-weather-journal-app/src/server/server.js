@@ -33,41 +33,65 @@ function listening() {
     console.log(`running on localhost: ${port}`);
 };
 
-app.get('/trip/search', fastSearchDestination);
+app.get('/trip/search', tripSearch);
 
-async function slowSearchDestination(request, response) {
+async function tripSearch(request, response) {
     country = request.query.country;
     city = request.query.city;
+    dateStr = request.query.date;
+    tripDate = request.query.date;
+    resp = await fastFetch(country, city, dateStr);
+    result = extract_message(resp, tripDate);
+    response.json(result);
+}
+
+async function slowFetch(country, city, dateStr) {
     const geo_json = await geo_search(country, city);
     const { lat, lng } = geo_json.geonames[0];
     const weather_json = await weather_forecast(lat, lng);
-    const pixabay_json = await pixabay_search(country, city);
-    return response.json({ geo_json, weather_json, pixabay_json });
+    const timestamp = parseInt(Date.parse(dateStr) / 1000);
+    const pixabay_json = await pixabay_search(country, city, timestamp);
+    return { geo_json, weather_json, pixabay_json };
 }
 
-async function fastSearchDestination(request, response) {
-    country = request.query.country;
-    city = request.query.city;
-
+async function fastFetch(country, city, dateStr) {
     const promise1 = async function (country, city) {
         const geo_json = await geo_search(country, city);
         let weather_json;
-        if (geo_json.totalResultsCount == 0) {
-            weather_json = {
-                code: 400,
-                error: "No data"
-            };
-        } else {
-            const { lat, lng } = geo_json.geonames[0];
-            weather_json = await weather_forecast(lat, lng);
-        }
+        const { lat, lng } = geo_json.geonames[0];
+        const timestamp = parseInt(Date.parse(dateStr) / 1000);
+        weather_json = await weather_forecast(lat, lng, timestamp);
         return { geo_json, weather_json };
     }(country, city);
     const promise2 = pixabay_search(country, city);
-    
+
     let { geo_json, weather_json } = await promise1;
     let pixabay_json = await promise2;
-    return response.json({ geo_json, weather_json, pixabay_json });
+    return { geo_json, weather_json, pixabay_json };
+}
+
+
+/**
+ * 
+ * @param {*} result 
+ * @param {*} tripDate : YYYY-MM-DD格式, 如2020-02-28
+ */
+function extract_message(result) {
+    const { weather_json, pixabay_json } = result;
+    let photo_url, temperatureHigh, temperatureLow, summary;
+    try {
+        photo_url = pixabay_json.hits[0].webformatURL;
+    } catch (err) {
+        console.log(err);
+    }
+    try {
+        temperatureHigh = weather_json.daily.data[0].temperatureHigh;
+        temperatureLow = weather_json.daily.data[0].temperatureLow;
+        summary = weather_json.daily.data[0].summary;
+    } catch (err) {
+        console.log(err);
+    }
+    return { photo_url, temperatureHigh, temperatureLow, summary }
 }
 
 app.post('/add', addData);

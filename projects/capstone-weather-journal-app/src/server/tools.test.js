@@ -12,9 +12,8 @@ describe('api-test', () => {
     });
 
     it('weather forecast', function () {
-        return weather_forecast('31.22222', 121.45806).then(
+        return weather_forecast('31.22222', 121.45806, 1582764645).then(
             json => {
-                expect(json).toHaveProperty('currently');
                 expect(json).toHaveProperty('daily.data');
             }
         );

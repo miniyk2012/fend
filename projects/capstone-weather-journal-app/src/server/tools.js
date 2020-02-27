@@ -11,9 +11,9 @@ async function geo_search(country, city) {
     return json;
 }
 
-async function weather_forecast(lat, lng) {
+async function weather_forecast(lat, lng, timestamp) {
     const darkSkyUrl = `https://api.darksky.net/forecast/${DARK_SKY_API_KEY}/\
-${lat},${lng}?lang=zh&exclude=hourly,flags`;
+${lat},${lng},${timestamp}?&exclude=hourly,currently,flags`;
     const res = await fetch(darkSkyUrl);
     const json = await res.json();
     return json;
@@ -30,5 +30,5 @@ module.exports = { geo_search, weather_forecast, pixabay_search };
 
 // usage
 // geo_search('china', 'shanghai').then(json => console.log(json));
-// weather_forecast(31.22222, 121.45806).then(json => console.log(json));
+// weather_forecast(31.22222, 121.45806, 1582764525).then(json => console.log(json));
 // pixabay_search('america', 'new york').then(json => console.log(json));
