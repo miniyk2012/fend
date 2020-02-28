@@ -1,47 +1,68 @@
 const config = require('./config');
-const { geo_search, weather_forecast, pixabay_search } = require('./tools');
-
-// Setup empty JS object to act as endpoint for all routes
-projectData = {};
-
-// Require Express to run server and routes
-const express = require('express');
-// Start up an instance of app
-const app = express();
-
-/* Middleware*/
-const bodyParser = require('body-parser')
-//Here we are configuring express to use body-parser as middle-ware.
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-
-
-// Cors for cross origin allowance
-const cors = require('cors');
-app.use(cors());
-
-// Initialize the main project folder
-app.use(express.static('dist'));
+const { geo_search, weather_forecast, delTrip,
+    pixabay_search, listTrips, addTrip, queryTrip } = require('./tools');
 
 
 // Setup Server
 const port = config.PORT;
+const app = setUpApp();
 app.listen(port, listening);
+
+// init db
+const db = startDb();
+
 
 function listening() {
     // console.log(server);
     console.log(`running on localhost: ${port}`);
 };
 
-app.get('/trip/search', tripSearch);
+function setUpApp() {
+    // Require Express to run server and routes
+    const express = require('express');
+    // Start up an instance of app
+    const app = express();
+
+    /* Middleware*/
+    const bodyParser = require('body-parser')
+    //Here we are configuring express to use body-parser as middle-ware.
+    app.use(bodyParser.urlencoded({ extended: false }));
+    app.use(bodyParser.json());
+
+
+    // Cors for cross origin allowance
+    const cors = require('cors');
+    app.use(cors());
+
+    // Initialize the main project folder
+    app.use(express.static('dist'));
+
+    app.get('/trip/search', tripSearch);
+
+    app.post('/trip/save', saveTrip);
+    app.get('/trip/:id', getTrip);
+    app.get('/trips/all', allTrips);
+    app.post('/trip/remove', removeTrip);
+    return app;
+}
+
+// https://github.com/typicode/lowdb
+function startDb() {
+    const low = require('lowdb');
+    const FileSync = require('lowdb/adapters/FileSync');
+
+    const adapter = new FileSync('src/server/data.json');
+    const db = low(adapter);
+    db.defaults({ trips: [] }).write();
+    return db;
+}
 
 async function tripSearch(request, response) {
     country = request.query.country;
     city = request.query.city;
-    dateStr = request.query.date;
     tripDate = request.query.date;
-    resp = await fastFetch(country, city, dateStr);
-    result = extract_message(resp, tripDate);
+    resp = await fastFetch(country, city, tripDate);
+    result = extract_message(resp);
     response.json(result);
 }
 
@@ -94,12 +115,27 @@ function extract_message(result) {
     return { photo_url, temperatureHigh, temperatureLow, summary }
 }
 
-app.post('/add', addData);
 
-function addData(request, response) {
-    projectData.temperature = request.body.temperature;
-    projectData.date = request.body.date;
-    projectData.userResponse = request.body.userResponse;
-    console.log('/add: projectData=', projectData)
-    response.json({ "code": "0" })
+function saveTrip(request, response) {
+    const trip = request.body;
+    const tripId = addTrip(db, trip);
+    console.log(`save tripId = ${tripId}`)
+    response.json({ "code": "0", "tripId": tripId })
+}
+
+function getTrip(req, res) {
+    const tripId = req.params.id;
+    const trip = queryTrip(db, tripId);
+    res.json(trip);
+}
+
+function allTrips(req, res) {
+    const trips = listTrips(db);
+    res.json(trips);
+}
+
+function removeTrip(req, res) {
+    const tripId = req.body.id;
+    const code = delTrip(db, tripId);
+    res.json({'code': code});
 }

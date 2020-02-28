@@ -8,7 +8,9 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "geocoder-geonames": "^0.1.2",
+    "lowdb": "^1.0.0",
     "node-fetch": "^2.6.0",
+    "shortid": "^2.2.15",
     "webpack": "^4.41.6",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"

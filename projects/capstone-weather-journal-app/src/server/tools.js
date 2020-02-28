@@ -1,5 +1,6 @@
 const { GEO_USERNAME, DARK_SKY_API_KEY, PIXABAY_API_KEY } = require('./config.js');
 const fetch = require('node-fetch');
+const shortid = require('shortid');
 require("babel-polyfill");
 
 
@@ -22,11 +23,48 @@ ${lat},${lng},${timestamp}?&exclude=hourly,currently,flags`;
 async function pixabay_search(country, city) {
     const pixabayUrl = `https://pixabay.com/api/?key=${PIXABAY_API_KEY}\
 &q=${country}+${city}&image_type=photo&per_page=5&category=buildings`;
-const res = await fetch(pixabayUrl);
-const json = await res.json();
-return json;
+    const res = await fetch(pixabayUrl);
+    const json = await res.json();
+    return json;
 }
-module.exports = { geo_search, weather_forecast, pixabay_search };
+
+function addTrip(db, trip) {
+    const tripId = shortid.generate()
+    db.get('trips')
+        .push({ id: tripId, created_at: Date.now(),  ...trip })
+        .write();
+    return tripId;
+}
+
+function queryTrip(db, tripId) {
+    return db.get('trips')
+        .find({ id: tripId })
+        .value();
+}
+
+function listTrips(db) {
+    trips = db.get('trips')
+        .sortBy('created_at')
+        .reverse()
+        .value();
+    return trips;
+}
+
+function delTrip(db, tripId) {
+    const value = db.get('trips')
+        .remove({ id: tripId })
+        .write();
+    if (value.length == 0) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+module.exports = {
+    geo_search, weather_forecast, delTrip,
+    pixabay_search, addTrip, queryTrip, listTrips
+};
 
 // usage
 // geo_search('china', 'shanghai').then(json => console.log(json));
