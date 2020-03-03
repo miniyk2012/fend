@@ -11,11 +11,19 @@ module.exports = {
         library: 'Client'
     },
     module: {
-        rules: [{
+        rules: [
+            {
                 test: '/\.js$/',
                 exclude: /node_modules/,
                 loader: "babel-loader"
             },
+            {
+                test: /\.(png|jpg|gif|svg)$/,
+                loader: 'file-loader',
+                options: {
+                    name: 'img/[name].[ext]'
+                }
+            }
         ]
     },
     plugins: [
@@ -23,6 +31,6 @@ module.exports = {
             template: "./src/client/views/index.html",
             filename: "./index.html",
         }),
-        new MiniCssExtractPlugin({filename: '[name].css'}),
+        new MiniCssExtractPlugin({ filename: '[name].css' }),
     ]
 }

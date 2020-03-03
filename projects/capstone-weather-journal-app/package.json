@@ -5,11 +5,14 @@
   "main": "index.js",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "bootstrap": "^4.4.1",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "geocoder-geonames": "^0.1.2",
+    "jquery": "^3.4.1",
     "lowdb": "^1.0.0",
     "node-fetch": "^2.6.0",
+    "popper.js": "^1.16.1",
     "shortid": "^2.2.15",
     "webpack": "^4.41.6",
     "webpack-cli": "^3.3.11",
@@ -18,6 +21,7 @@
   "devDependencies": {
     "@babel/core": "^7.8.4",
     "@babel/preset-env": "^7.8.4",
+    "autoprefixer": "^9.7.4",
     "babel-loader": "^8.0.6",
     "babel-polyfill": "^6.26.0",
     "clean-webpack-plugin": "^3.0.0",
@@ -41,7 +45,7 @@
     "test": "jest",
     "start": "node src/server/server.js",
     "dev": "webpack-dev-server --config webpack.dev.js --open",
-    "build": "webpack --config webpack.prod.js"
+    "prod": "webpack --config webpack.prod.js"
   },
   "author": "",
   "license": "ISC"
